@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title></title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<link href="site_libs/bokehjs-0.12.2/bokeh.min.css" rel="stylesheet" />
+<link href="site_libs/bokehjs-0.12.2/loader.css" rel="stylesheet" />
+<script src="site_libs/bokehjs-0.12.2/bokeh.min.js"></script>
+<script src="site_libs/rbokeh-binding-0.5.0/rbokeh.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="css/web_style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ibon Martínez Arranz</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home fa-2x"></span>
+     
+     Inicio
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="fa fa-user fa-2x"></span>
+     
+     Sobre mí
+  </a>
+</li>
+<li>
+  <a href="blog.html">
+    <span class="fa fa-comment fa-2x"></span>
+     
+     Blog
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-th-list fa-2x"></span>
+     
+     Más
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="manual.html">
+        <span class="fa fa-book fa-1x"></span>
+         
+         Manual de R
+      </a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="cv.html">
+        <span class="fa fa-user fa-1x"></span>
+         
+         CV
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=martinez-arranz">
+    <span class="fa fa-university fa-2x"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/company/owl">
+    <span class="fa fa-linkedin-square fa-2x"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://twitter.com/imarranz">
+    <span class="fa fa-twitter-square fa-2x"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="http://www.github.com/imarranz">
+    <span class="fa fa-github-square fa-2x"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<div id="definiciones" class="section level2">
+<h2>Definiciones</h2>
+<p>Definimos la sensibilidad y especificidad de una prueba de la siguiente manera:</p>
+<ul>
+<li><p>La <strong>sensibilidad</strong> nos indica la capacidad del test OWLiver Care 3.0 para dar como casos positivos los casos realmente enfermos; proporción de enfermos correctamente identificados. Es decir, la sensibilidad caracteriza la capacidad de la prueba para detectar la enfermedad en sujetos enfermos.</p></li>
+<li><p>La <strong>especificidad</strong> nos indica la capacidad del test OWLiver Care 3.0 para dar como casos negativos los casos realmente sanos; proporción de sanos correctamente identificados. Es decir, la especificidad caracteriza la capacidad de la prueba para detectar la ausencia de la enfermedad en sujetos sanos.</p></li>
+</ul>
+<p>De esta manera, tenemos diferentes valores de sensibilidad y especificidad en función del punto de corte del OWLiver (cutoff). Además, estas medidas son complementarias, si tenemos una prueba muy sensible (todos los pacientes enfermos son correctamente identificados) seguramente la prueba sea poco específica (estaremos clasificando muchos pacientes sanos como enfermos por la alta sensibilidad), por eso, se suele realizar una curva con los diferentes valores de sensibilidad y especificidad para valorar el corte óptimo de sensibilidad y especificidad de la prueba.</p>
+<p>Se ha representado la capacidad predictiva del test mediante una curva ROC, en el que en el eje de abscisas (eje x) se representa la especificidad o 1-especificidad (depende de la representación) y en el eje de ordenadas (eje y) se representa la sensibilidad de la prueba.</p>
+<p>Otro indicador de la calidad del test OWLiver Care 3.0 es el Área Bajo la Curva (AUC = Area Under the Curve). Si el Área está en torno a 0,5, indica que nuestra prueba no está correctamente calibrada y sólo acertará en torno al 50% de los casos. Lo ideal es tener una AUC lo más cercano a 1. También se presenta el <em>Índice Brier</em>, si éste índice es cercano a 1 nos indica que la clasificación está muy alejada de lo observado, en cambio, si es un valor cercano a 0 nos indica que la clasificación es bastante correcta.</p>
+<span class="math display">\[\begin{equation}
+BS = \frac{1}{N}\sum\limits _{t=1}^{N}(f_t-o_t)^2 \,\!
+\end{equation}\]</span>
+<p>Como corte óptimo de sensibilidad y especificidad de una prueba diagnóstica suele utilizarse el Índice de Youden que es el valor máximo de la función Y = sensibilidad + especificidad - 1. Esta función tiene como valor máximo el valor 1 (cuando sensibilidad y especificidad valen 1), y cuanto más cerca esté mejor será nuestra prueba.</p>
+<p>También se calculan los valores predictivos (positivo y negativo) que miden la eficacia real del test OWLiver. Son probabilidades del resultado, es decir, dan la probabilidad de padecer o no la enfermedad una vez conocido el resultado del test OWLiver. Se trata de valores post-test y dependen de la prevalencia real de la enfermedad de hígado graso, es decir, del porcentaje real de la población que está afectada por esta patología.</p>
+<ul>
+<li><p><strong>Valor predictivo positivo</strong> (PPV): Probabilidad de tener la enfermedad si el resultado del OWLiver es positivo.</p></li>
+<li><p><strong>Valor predictivo negativo</strong> (NPV): Probabilidad de no tener la enfermedad si el resultado del OWLiver es negativo.</p></li>
+</ul>
+<p>En el presente estudio hemos analizado los estadísticos en función del cutoff de la prueba ¿Qué conseguimos con esto? Ver como aumenta la sensibilidad de la prueba, es decir, aumentar la proporción de pacientes enfermos correctamente clasificados. En contra, se disminuye la especificidad del test. Es difícil analizar el cambio de los valores predictivos, ya que, como dependen de la prevalencia real de la enfermedad, no puede ser analizada y variará de unas poblaciones a otras. Para analizar los cambios en estos índices en otras poblaciones se debería analizar la prevalencia real de la enfermedad de hígado graso en divhas poblaciones.</p>
+</div>
+<div id="calculo-de-los-estadisticos-de-una-tabla-de-confusion" class="section level2">
+<h2>Cálculo de los estadísticos de una tabla de confusión</h2>
+<p>Supongamos una tabla 2x2 con la siguiente notación:</p>
+
+<p>Las fórmulas usadas son:</p>
+<span class="math display">\[\begin{equation}
+Accuracy = \dfrac{A+D}{A+B+C+D}
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+Sensitivity = \dfrac{A}{A+C}
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+Specificity = \dfrac{D}{B+D}
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+Prevalence = \dfrac{A+C}{A+B+C+D}
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+PPV = \dfrac{Sens * Prev}{\left( Sens * Prev\right) + \left( \left( 1-Spec\right) * \left( 1-Prev\right) \right)}
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+NPV = \dfrac{Spec * \left( 1-Prev \right)}{\left(  \left(1 - Sens\right) * Prev\right) + \left( Spec * \left( 1-Prev\right) \right)}
+\end{equation}\]</span>
+<pre class="r"><code>library(&quot;rbokeh&quot;)
+
+figure(xlab = &quot;XLAB&quot;, ylab = &quot;YLAB&quot;, 
+       xlim = c(-5, 15), ylim = c(0, 20),
+       xgrid = TRUE,
+       ygrid = FALSE)  %&gt;% ly_points(1:10)</code></pre>
+<div class="figure">
+<div id="htmlwidget-d8133c70a0e459ecdd89" style="width:672px;height:672px;" class="rbokeh html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d8133c70a0e459ecdd89">{"x":{"elementid":"a8545b2066cb612e3844e4a5dfc7a698","modeltype":"Plot","modelid":"7b08bc2960de33215bddd54969fa6e61","docid":"378b55d48d0732c5c606fa13e496e454","docs_json":{"378b55d48d0732c5c606fa13e496e454":{"version":"0.12.2","title":"Bokeh Figure","roots":{"root_ids":["7b08bc2960de33215bddd54969fa6e61"],"references":[{"type":"Plot","id":"7b08bc2960de33215bddd54969fa6e61","attributes":{"id":"7b08bc2960de33215bddd54969fa6e61","sizing_mode":"scale_both","x_range":{"type":"Range1d","id":"418c2f5456e24bc4f94af69b3fa77681"},"y_range":{"type":"Range1d","id":"02e7146e50c67faae9a05e3bf82a1261"},"left":[{"type":"LinearAxis","id":"beca286901cc696d667109ae2ac422ec"}],"below":[{"type":"LinearAxis","id":"35b05efc1ddb5d8cde59b9ce39cca6c2"}],"right":[],"above":[],"renderers":[{"type":"BoxAnnotation","id":"0c65234da3680d95d6f7e32d138f2112"},{"type":"GlyphRenderer","id":"34e5d975872dcf37f4a775e1a4c154ca"},{"type":"LinearAxis","id":"35b05efc1ddb5d8cde59b9ce39cca6c2"},{"type":"Grid","id":"1dce375e52085e474867d9523e5fb840"},{"type":"LinearAxis","id":"beca286901cc696d667109ae2ac422ec"}],"extra_y_ranges":{},"extra_x_ranges":{},"tags":[],"min_border_left":4,"min_border_right":4,"min_border_top":4,"min_border_bottom":4,"lod_threshold":null,"toolbar":{"type":"Toolbar","id":"0f06b37437171533335150faee5fc33e"},"tool_events":{"type":"ToolEvents","id":"adfd11210173d4a86d41519cab04bae9"}},"subtype":"Figure"},{"type":"Toolbar","id":"0f06b37437171533335150faee5fc33e","attributes":{"id":"0f06b37437171533335150faee5fc33e","tags":[],"active_drag":"auto","active_scroll":"auto","active_tap":"auto","tools":[{"type":"PanTool","id":"c657958e871d7acab718d6bd573f618f"},{"type":"WheelZoomTool","id":"0b7a8e978c981995da59bfe14a797ce0"},{"type":"BoxZoomTool","id":"038de44bb6de0e8ffc0227b3326b8a30"},{"type":"ResetTool","id":"10e5daf02501827b573686fc022fb64c"},{"type":"SaveTool","id":"e2222cd8ec2109f33c9d6906743495a0"},{"type":"HelpTool","id":"a7ffa8692f7b8bf354032c1a61532e1e"}],"logo":null}},{"type":"PanTool","id":"c657958e871d7acab718d6bd573f618f","attributes":{"id":"c657958e871d7acab718d6bd573f618f","tags":[],"plot":{"type":"Plot","id":"7b08bc2960de33215bddd54969fa6e61","subtype":"Figure"},"dimensions":["width","height"]}},{"type":"ToolEvents","id":"adfd11210173d4a86d41519cab04bae9","attributes":{"id":"adfd11210173d4a86d41519cab04bae9","tags":[]},"geometries":[]},{"type":"WheelZoomTool","id":"0b7a8e978c981995da59bfe14a797ce0","attributes":{"id":"0b7a8e978c981995da59bfe14a797ce0","tags":[],"plot":{"type":"Plot","id":"7b08bc2960de33215bddd54969fa6e61","subtype":"Figure"},"dimensions":["width","height"]}},{"type":"BoxAnnotation","id":"0c65234da3680d95d6f7e32d138f2112","attributes":{"id":"0c65234da3680d95d6f7e32d138f2112","tags":[],"line_color":{"units":"data","value":"black"},"line_alpha":{"units":"data","value":1},"fill_color":{"units":"data","value":"lightgrey"},"fill_alpha":{"units":"data","value":0.5},"line_dash":[4,4],"line_width":{"units":"data","value":2},"level":"overlay","top_units":"screen","bottom_units":"screen","left_units":"screen","right_units":"screen","render_mode":"css"}},{"type":"BoxZoomTool","id":"038de44bb6de0e8ffc0227b3326b8a30","attributes":{"id":"038de44bb6de0e8ffc0227b3326b8a30","tags":[],"plot":{"type":"Plot","id":"7b08bc2960de33215bddd54969fa6e61","subtype":"Figure"},"overlay":{"type":"BoxAnnotation","id":"0c65234da3680d95d6f7e32d138f2112"}}},{"type":"ResetTool","id":"10e5daf02501827b573686fc022fb64c","attributes":{"id":"10e5daf02501827b573686fc022fb64c","tags":[],"plot":{"type":"Plot","id":"7b08bc2960de33215bddd54969fa6e61","subtype":"Figure"}}},{"type":"SaveTool","id":"e2222cd8ec2109f33c9d6906743495a0","attributes":{"id":"e2222cd8ec2109f33c9d6906743495a0","tags":[],"plot":{"type":"Plot","id":"7b08bc2960de33215bddd54969fa6e61","subtype":"Figure"}}},{"type":"HelpTool","id":"a7ffa8692f7b8bf354032c1a61532e1e","attributes":{"id":"a7ffa8692f7b8bf354032c1a61532e1e","tags":[],"plot":{"type":"Plot","id":"7b08bc2960de33215bddd54969fa6e61","subtype":"Figure"},"redirect":"http://hafen.github.io/rbokeh","help_tooltip":"Click to learn more about rbokeh."}},{"type":"ColumnDataSource","id":"5610838c693d14bef2ff9b8f350fbc70","attributes":{"id":"5610838c693d14bef2ff9b8f350fbc70","tags":[],"column_names":["x","y"],"selected":[],"data":{"x":[1,2,3,4,5,6,7,8,9,10],"y":[1,2,3,4,5,6,7,8,9,10]}}},{"type":"Circle","id":"4df0c8c2deca75ac4a95bbcbb6c066ac","attributes":{"id":"4df0c8c2deca75ac4a95bbcbb6c066ac","tags":[],"size":{"units":"screen","value":10},"visible":true,"line_color":{"units":"data","value":"#1F77B4"},"fill_color":{"units":"data","value":"#1F77B4"},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":0.5},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"Circle","id":"60a495a5705b6db0d96161a754b88a9c","attributes":{"id":"60a495a5705b6db0d96161a754b88a9c","tags":[],"size":{"units":"screen","value":10},"visible":true,"line_color":{"units":"data","value":"#e1e1e1"},"fill_color":{"units":"data","value":"#e1e1e1"},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":0.5},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"Circle","id":"58c54bf302355071cb3ef2b446186f1a","attributes":{"id":"58c54bf302355071cb3ef2b446186f1a","tags":[],"size":{"units":"screen","value":10},"visible":true,"line_color":{"units":"data","value":"#1F77B4"},"fill_color":{"units":"data","value":"#1F77B4"},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":1},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"GlyphRenderer","id":"34e5d975872dcf37f4a775e1a4c154ca","attributes":{"id":"34e5d975872dcf37f4a775e1a4c154ca","tags":[],"selection_glyph":null,"nonselection_glyph":{"type":"Circle","id":"60a495a5705b6db0d96161a754b88a9c"},"hover_glyph":{"type":"Circle","id":"58c54bf302355071cb3ef2b446186f1a"},"name":null,"data_source":{"type":"ColumnDataSource","id":"5610838c693d14bef2ff9b8f350fbc70"},"glyph":{"type":"Circle","id":"4df0c8c2deca75ac4a95bbcbb6c066ac"}}},{"type":"Range1d","id":"418c2f5456e24bc4f94af69b3fa77681","attributes":{"id":"418c2f5456e24bc4f94af69b3fa77681","tags":[],"start":-5,"end":15}},{"type":"Range1d","id":"02e7146e50c67faae9a05e3bf82a1261","attributes":{"id":"02e7146e50c67faae9a05e3bf82a1261","tags":[],"start":0,"end":20}},{"type":"LinearAxis","id":"35b05efc1ddb5d8cde59b9ce39cca6c2","attributes":{"id":"35b05efc1ddb5d8cde59b9ce39cca6c2","tags":[],"plot":{"type":"Plot","id":"7b08bc2960de33215bddd54969fa6e61","subtype":"Figure"},"axis_label":"XLAB","formatter":{"type":"BasicTickFormatter","id":"8d362f124d37b9e547912b1faf31fbd3"},"ticker":{"type":"BasicTicker","id":"6e41dd2bc28005cb88cdd3f78fda76ab"},"visible":true,"axis_label_text_font_size":"12pt"}},{"type":"BasicTickFormatter","id":"8d362f124d37b9e547912b1faf31fbd3","attributes":{"id":"8d362f124d37b9e547912b1faf31fbd3","tags":[]}},{"type":"BasicTicker","id":"6e41dd2bc28005cb88cdd3f78fda76ab","attributes":{"id":"6e41dd2bc28005cb88cdd3f78fda76ab","tags":[],"num_minor_ticks":5}},{"type":"Grid","id":"1dce375e52085e474867d9523e5fb840","attributes":{"id":"1dce375e52085e474867d9523e5fb840","tags":[],"dimension":0,"plot":{"type":"Plot","id":"7b08bc2960de33215bddd54969fa6e61","subtype":"Figure"},"ticker":{"type":"BasicTicker","id":"6e41dd2bc28005cb88cdd3f78fda76ab"}}},{"type":"LinearAxis","id":"beca286901cc696d667109ae2ac422ec","attributes":{"id":"beca286901cc696d667109ae2ac422ec","tags":[],"plot":{"type":"Plot","id":"7b08bc2960de33215bddd54969fa6e61","subtype":"Figure"},"axis_label":"YLAB","formatter":{"type":"BasicTickFormatter","id":"984d618c03bb6e2a563b006dae7b9cf2"},"ticker":{"type":"BasicTicker","id":"2d755bff1ee78c0d8592507d3023ba16"},"visible":true,"axis_label_text_font_size":"12pt"}},{"type":"BasicTickFormatter","id":"984d618c03bb6e2a563b006dae7b9cf2","attributes":{"id":"984d618c03bb6e2a563b006dae7b9cf2","tags":[]}},{"type":"BasicTicker","id":"2d755bff1ee78c0d8592507d3023ba16","attributes":{"id":"2d755bff1ee78c0d8592507d3023ba16","tags":[],"num_minor_ticks":5}}]}}},"debug":false},"evals":[],"jsHooks":[]}</script>
+<p class="caption">
+<strong>FIGURA</strong>: Prueba de rbokeh
+</p>
+</div>
+<pre class="r"><code>z &lt;- lm(dist ~ speed, data = cars)
+p &lt;- figure(width = 700, height = 700) %&gt;%
+  ly_points(cars, hover = cars) %&gt;%
+  ly_lines(lowess(cars), legend = &quot;lowess&quot;) %&gt;%
+  ly_abline(z, type = 2, legend = &quot;lm&quot;, width = 2)
+p</code></pre>
+<div id="htmlwidget-021f358b06757226a59e" style="width:700px;height:700px;" class="rbokeh html-widget"></div>
+<script type="application/json" data-for="htmlwidget-021f358b06757226a59e">{"x":{"elementid":"a3405ade84a152e050f83356d34c88b8","modeltype":"Plot","modelid":"163d87ff599535e7d237eb0e59d3edf7","docid":"7f99c0045fcac48a30021031324c1126","docs_json":{"7f99c0045fcac48a30021031324c1126":{"version":"0.12.2","title":"Bokeh Figure","roots":{"root_ids":["163d87ff599535e7d237eb0e59d3edf7"],"references":[{"type":"Plot","id":"163d87ff599535e7d237eb0e59d3edf7","attributes":{"id":"163d87ff599535e7d237eb0e59d3edf7","plot_width":700,"plot_height":700,"sizing_mode":"scale_both","x_range":{"type":"Range1d","id":"a53f5151cda42aaf45dc45e0d36e014a"},"y_range":{"type":"Range1d","id":"4fae362db2afb80f4d0da6fbd7c71f09"},"left":[{"type":"LinearAxis","id":"68a7d6f8c094c583cb18f27bbddd2cba"}],"below":[{"type":"LinearAxis","id":"669e479b8cf0afeeb9fe451b1e9b30a5"}],"right":[],"above":[],"renderers":[{"type":"BoxAnnotation","id":"3d533f52bcf295575a3d1719e8fbeb4d"},{"type":"GlyphRenderer","id":"ba54b2433dcafb7476233ab9ace4e42f"},{"type":"GlyphRenderer","id":"4d2b6f2cd88eecc253303a99a2a883fe"},{"type":"GlyphRenderer","id":"28b5d6616075557e4c589b915e146ab4"},{"type":"GlyphRenderer","id":"2e757c60ea01eda9fd1c7e276baa61c2"},{"type":"GlyphRenderer","id":"1029961cdfad1c191facd12736ccd07d"},{"type":"Legend","id":"319ad4eaf238c44398d839e78e7289c3"},{"type":"LinearAxis","id":"669e479b8cf0afeeb9fe451b1e9b30a5"},{"type":"Grid","id":"c63d6fc0ffc7277224d7ca7826a2bd53"},{"type":"LinearAxis","id":"68a7d6f8c094c583cb18f27bbddd2cba"},{"type":"Grid","id":"2a7a13c60351c636e2fe79482d0c1fa7"}],"extra_y_ranges":{},"extra_x_ranges":{},"tags":[],"min_border_left":4,"min_border_right":4,"min_border_top":4,"min_border_bottom":4,"lod_threshold":null,"toolbar":{"type":"Toolbar","id":"e226e4a1d39481c2d20acd562277abef"},"tool_events":{"type":"ToolEvents","id":"f8b617f3b747fbb5864aa2ea804e1e4d"}},"subtype":"Figure"},{"type":"Toolbar","id":"e226e4a1d39481c2d20acd562277abef","attributes":{"id":"e226e4a1d39481c2d20acd562277abef","tags":[],"active_drag":"auto","active_scroll":"auto","active_tap":"auto","tools":[{"type":"PanTool","id":"9575e403b6804511f055f1867b9bd26c"},{"type":"WheelZoomTool","id":"86717c9c548b5de2255bdde495debd85"},{"type":"BoxZoomTool","id":"62f11aeb6e1faec7f6b357bb40aa0d2d"},{"type":"ResetTool","id":"4ab411edefedc9cd9c6ce74468005272"},{"type":"SaveTool","id":"9271bf9db0285e4bb4f79076af801e33"},{"type":"HelpTool","id":"dbc3029c8c8640cd2820a1b47d973942"},{"type":"HoverTool","id":"e1b4425763d122124348530237e3184c"}],"logo":null}},{"type":"PanTool","id":"9575e403b6804511f055f1867b9bd26c","attributes":{"id":"9575e403b6804511f055f1867b9bd26c","tags":[],"plot":{"type":"Plot","id":"163d87ff599535e7d237eb0e59d3edf7","subtype":"Figure"},"dimensions":["width","height"]}},{"type":"ToolEvents","id":"f8b617f3b747fbb5864aa2ea804e1e4d","attributes":{"id":"f8b617f3b747fbb5864aa2ea804e1e4d","tags":[]},"geometries":[]},{"type":"WheelZoomTool","id":"86717c9c548b5de2255bdde495debd85","attributes":{"id":"86717c9c548b5de2255bdde495debd85","tags":[],"plot":{"type":"Plot","id":"163d87ff599535e7d237eb0e59d3edf7","subtype":"Figure"},"dimensions":["width","height"]}},{"type":"BoxAnnotation","id":"3d533f52bcf295575a3d1719e8fbeb4d","attributes":{"id":"3d533f52bcf295575a3d1719e8fbeb4d","tags":[],"line_color":{"units":"data","value":"black"},"line_alpha":{"units":"data","value":1},"fill_color":{"units":"data","value":"lightgrey"},"fill_alpha":{"units":"data","value":0.5},"line_dash":[4,4],"line_width":{"units":"data","value":2},"level":"overlay","top_units":"screen","bottom_units":"screen","left_units":"screen","right_units":"screen","render_mode":"css"}},{"type":"BoxZoomTool","id":"62f11aeb6e1faec7f6b357bb40aa0d2d","attributes":{"id":"62f11aeb6e1faec7f6b357bb40aa0d2d","tags":[],"plot":{"type":"Plot","id":"163d87ff599535e7d237eb0e59d3edf7","subtype":"Figure"},"overlay":{"type":"BoxAnnotation","id":"3d533f52bcf295575a3d1719e8fbeb4d"}}},{"type":"ResetTool","id":"4ab411edefedc9cd9c6ce74468005272","attributes":{"id":"4ab411edefedc9cd9c6ce74468005272","tags":[],"plot":{"type":"Plot","id":"163d87ff599535e7d237eb0e59d3edf7","subtype":"Figure"}}},{"type":"SaveTool","id":"9271bf9db0285e4bb4f79076af801e33","attributes":{"id":"9271bf9db0285e4bb4f79076af801e33","tags":[],"plot":{"type":"Plot","id":"163d87ff599535e7d237eb0e59d3edf7","subtype":"Figure"}}},{"type":"HelpTool","id":"dbc3029c8c8640cd2820a1b47d973942","attributes":{"id":"dbc3029c8c8640cd2820a1b47d973942","tags":[],"plot":{"type":"Plot","id":"163d87ff599535e7d237eb0e59d3edf7","subtype":"Figure"},"redirect":"http://hafen.github.io/rbokeh","help_tooltip":"Click to learn more about rbokeh."}},{"type":"HoverTool","id":"e1b4425763d122124348530237e3184c","attributes":{"id":"e1b4425763d122124348530237e3184c","tags":[],"plot":{"type":"Plot","id":"163d87ff599535e7d237eb0e59d3edf7","subtype":"Figure"},"renderers":[{"type":"GlyphRenderer","id":"ba54b2433dcafb7476233ab9ace4e42f"}],"names":[],"anchor":"center","attachment":"horizontal","line_policy":"prev","mode":"mouse","point_policy":"snap_to_data","tooltips":[["speed","@hover_col_1"],["dist","@hover_col_2"]]}},{"type":"ColumnDataSource","id":"ec9e7b47e60d9a971ed390e9f7c5b1e6","attributes":{"id":"ec9e7b47e60d9a971ed390e9f7c5b1e6","tags":[],"column_names":["x","y","hover_col_1","hover_col_2"],"selected":[],"data":{"x":[4,4,7,7,8,9,10,10,10,11,11,12,12,12,12,13,13,13,13,14,14,14,14,15,15,15,16,16,17,17,17,18,18,18,18,19,19,19,20,20,20,20,20,22,23,24,24,24,24,25],"y":[2,10,4,22,16,10,18,26,34,17,28,14,20,24,28,26,34,34,46,26,36,60,80,20,26,54,32,40,32,40,50,42,56,76,84,36,46,68,32,48,52,56,64,66,54,70,92,93,120,85],"hover_col_1":[" 4"," 4"," 7"," 7"," 8"," 9","10","10","10","11","11","12","12","12","12","13","13","13","13","14","14","14","14","15","15","15","16","16","17","17","17","18","18","18","18","19","19","19","20","20","20","20","20","22","23","24","24","24","24","25"],"hover_col_2":["  2"," 10","  4"," 22"," 16"," 10"," 18"," 26"," 34"," 17"," 28"," 14"," 20"," 24"," 28"," 26"," 34"," 34"," 46"," 26"," 36"," 60"," 80"," 20"," 26"," 54"," 32"," 40"," 32"," 40"," 50"," 42"," 56"," 76"," 84"," 36"," 46"," 68"," 32"," 48"," 52"," 56"," 64"," 66"," 54"," 70"," 92"," 93","120"," 85"]}}},{"type":"Circle","id":"5f95a8d3a6af1b45524d04aaec4fb24b","attributes":{"id":"5f95a8d3a6af1b45524d04aaec4fb24b","tags":[],"size":{"units":"screen","value":10},"visible":true,"line_color":{"units":"data","value":"#1F77B4"},"fill_color":{"units":"data","value":"#1F77B4"},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":0.5},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"Circle","id":"5c2aa9e29ae6f8c7be0323ba49396be3","attributes":{"id":"5c2aa9e29ae6f8c7be0323ba49396be3","tags":[],"size":{"units":"screen","value":10},"visible":true,"line_color":{"units":"data","value":"#e1e1e1"},"fill_color":{"units":"data","value":"#e1e1e1"},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":0.5},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"Circle","id":"cc958e3215aa28f8fb0d5a85c2e7c696","attributes":{"id":"cc958e3215aa28f8fb0d5a85c2e7c696","tags":[],"size":{"units":"screen","value":10},"visible":true,"line_color":{"units":"data","value":"#1F77B4"},"fill_color":{"units":"data","value":"#1F77B4"},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":1},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"GlyphRenderer","id":"ba54b2433dcafb7476233ab9ace4e42f","attributes":{"id":"ba54b2433dcafb7476233ab9ace4e42f","tags":[],"selection_glyph":null,"nonselection_glyph":{"type":"Circle","id":"5c2aa9e29ae6f8c7be0323ba49396be3"},"hover_glyph":{"type":"Circle","id":"cc958e3215aa28f8fb0d5a85c2e7c696"},"name":null,"data_source":{"type":"ColumnDataSource","id":"ec9e7b47e60d9a971ed390e9f7c5b1e6"},"glyph":{"type":"Circle","id":"5f95a8d3a6af1b45524d04aaec4fb24b"}}},{"type":"ColumnDataSource","id":"5fa5c20062b4fa40298e088840b31816","attributes":{"id":"5fa5c20062b4fa40298e088840b31816","tags":[],"column_names":["x","y"],"selected":[],"data":{"x":[4,4,7,7,8,9,10,10,10,11,11,12,12,12,12,13,13,13,13,14,14,14,14,15,15,15,16,16,17,17,17,18,18,18,18,19,19,19,20,20,20,20,20,22,23,24,24,24,24,25],"y":[4.96545927718688,4.96545927718688,13.1244950396664,13.1244950396664,15.8586333820983,18.5796905142177,21.2803125785285,21.2803125785285,21.2803125785285,24.1292771489265,24.1292771489265,27.1195485506035,27.1195485506035,27.1195485506035,27.1195485506035,30.027276331154,30.027276331154,30.027276331154,30.027276331154,32.9625061361576,32.9625061361576,32.9625061361576,32.9625061361576,36.7577283416497,36.7577283416497,36.7577283416497,40.4350745619887,40.4350745619887,43.4634917818176,43.4634917818176,43.4634917818176,46.885478946024,46.885478946024,46.885478946024,46.885478946024,50.7931517254206,50.7931517254206,50.7931517254206,56.4912240928772,56.4912240928772,56.4912240928772,56.4912240928772,56.4912240928772,67.5858242314313,73.07969526937,78.6431635543999,78.6431635543999,78.6431635543999,78.6431635543999,84.3286980968342]}}},{"type":"Line","id":"1aa51ea5fd08cb0e26da410afc4d6b53","attributes":{"id":"1aa51ea5fd08cb0e26da410afc4d6b53","tags":[],"visible":true,"line_color":{"units":"data","value":"black"},"line_alpha":{"units":"data","value":1},"line_width":{"units":"data","value":1},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"Line","id":"bf29e9edbe735f6816482c0b24b47fb2","attributes":{"id":"bf29e9edbe735f6816482c0b24b47fb2","tags":[],"visible":true,"line_color":{"units":"data","value":"#e1e1e1"},"line_alpha":{"units":"data","value":1},"line_width":{"units":"data","value":1},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"Line","id":"39ff009ae0ce4579c497632fc1370247","attributes":{"id":"39ff009ae0ce4579c497632fc1370247","tags":[],"visible":true,"line_color":{"units":"data","value":"black"},"line_alpha":{"units":"data","value":1},"line_width":{"units":"data","value":1},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"GlyphRenderer","id":"4d2b6f2cd88eecc253303a99a2a883fe","attributes":{"id":"4d2b6f2cd88eecc253303a99a2a883fe","tags":[],"selection_glyph":null,"nonselection_glyph":{"type":"Line","id":"bf29e9edbe735f6816482c0b24b47fb2"},"hover_glyph":{"type":"Line","id":"39ff009ae0ce4579c497632fc1370247"},"name":null,"data_source":{"type":"ColumnDataSource","id":"5fa5c20062b4fa40298e088840b31816"},"glyph":{"type":"Line","id":"1aa51ea5fd08cb0e26da410afc4d6b53"}}},{"type":"ColumnDataSource","id":"dece424ad80d3c6e4e4680c460cae2af","attributes":{"id":"dece424ad80d3c6e4e4680c460cae2af","tags":[],"column_names":["x0","y0","x1","y1"],"selected":[],"data":{"x0":[0],"y0":[-17.5790948905109],"x1":[1],"y1":[-13.6466861313868]}}},{"type":"Segment","id":"9de9c80a249e06b75f8470bd5da457bc","attributes":{"id":"9de9c80a249e06b75f8470bd5da457bc","tags":[],"visible":true,"line_color":{"units":"data","value":"black"},"line_dash":[8,8],"line_width":{"units":"data","value":2},"x0":{"units":"data","field":"x0"},"y0":{"units":"data","field":"y0"},"x1":{"units":"data","field":"x1"},"y1":{"units":"data","field":"y1"}}},{"type":"Segment","id":"cddf7a7ac50f597fac16b06106c917f5","attributes":{"id":"cddf7a7ac50f597fac16b06106c917f5","tags":[],"visible":true,"line_color":{"units":"data","value":"#e1e1e1"},"line_dash":[8,8],"line_width":{"units":"data","value":2},"x0":{"units":"data","field":"x0"},"y0":{"units":"data","field":"y0"},"x1":{"units":"data","field":"x1"},"y1":{"units":"data","field":"y1"}}},{"type":"Segment","id":"31fb22758a0b22175ed00b35e332f708","attributes":{"id":"31fb22758a0b22175ed00b35e332f708","tags":[],"visible":true,"line_color":{"units":"data","value":"black"},"line_dash":[8,8],"line_width":{"units":"data","value":2},"x0":{"units":"data","field":"x0"},"y0":{"units":"data","field":"y0"},"x1":{"units":"data","field":"x1"},"y1":{"units":"data","field":"y1"}}},{"type":"GlyphRenderer","id":"28b5d6616075557e4c589b915e146ab4","attributes":{"id":"28b5d6616075557e4c589b915e146ab4","tags":[],"selection_glyph":null,"nonselection_glyph":{"type":"Segment","id":"cddf7a7ac50f597fac16b06106c917f5"},"hover_glyph":{"type":"Segment","id":"31fb22758a0b22175ed00b35e332f708"},"name":null,"data_source":{"type":"ColumnDataSource","id":"8a5e882cc10cda5b7da1af1345d846f8"},"glyph":{"type":"Segment","id":"9de9c80a249e06b75f8470bd5da457bc"}}},{"type":"ColumnDataSource","id":"b89218636d6d2b6de466f46707c0d6ce","attributes":{"id":"b89218636d6d2b6de466f46707c0d6ce","tags":[],"column_names":["x","y"],"selected":[],"data":{"x":[null,null],"y":[null,null]}}},{"type":"Line","id":"3b8417f326942e91e1894654dd0b0db9","attributes":{"id":"3b8417f326942e91e1894654dd0b0db9","tags":[],"visible":true,"line_color":{"units":"data","value":"black"},"line_alpha":{"units":"data","value":1},"line_width":{"units":"data","value":1}}},{"type":"Line","id":"41e4498dc89fd11b06403a3e45a78c0f","attributes":{"id":"41e4498dc89fd11b06403a3e45a78c0f","tags":[],"visible":true,"line_color":{"units":"data","value":"#e1e1e1"},"line_alpha":{"units":"data","value":1},"line_width":{"units":"data","value":1}}},{"type":"Line","id":"97a168b8f0607901be3003653ebca862","attributes":{"id":"97a168b8f0607901be3003653ebca862","tags":[],"visible":true,"line_color":{"units":"data","value":"black"},"line_alpha":{"units":"data","value":1},"line_width":{"units":"data","value":1}}},{"type":"GlyphRenderer","id":"2e757c60ea01eda9fd1c7e276baa61c2","attributes":{"id":"2e757c60ea01eda9fd1c7e276baa61c2","tags":[],"selection_glyph":null,"nonselection_glyph":{"type":"Line","id":"41e4498dc89fd11b06403a3e45a78c0f"},"hover_glyph":{"type":"Line","id":"97a168b8f0607901be3003653ebca862"},"name":null,"data_source":{"type":"ColumnDataSource","id":"b89218636d6d2b6de466f46707c0d6ce"},"glyph":{"type":"Line","id":"3b8417f326942e91e1894654dd0b0db9"}}},{"type":"Segment","id":"8dc466b10c1a9cc91bb989aaccba8957","attributes":{"id":"8dc466b10c1a9cc91bb989aaccba8957","tags":[],"visible":true,"line_color":{"units":"data","value":"black"},"line_dash":[8,8],"line_width":{"units":"data","value":2}}},{"type":"Segment","id":"a3f24bc4b13869176c52a854acf6bbc3","attributes":{"id":"a3f24bc4b13869176c52a854acf6bbc3","tags":[],"visible":true,"line_color":{"units":"data","value":"#e1e1e1"},"line_dash":[8,8],"line_width":{"units":"data","value":2}}},{"type":"Segment","id":"9eda3d148ab93dcd10180f7339202297","attributes":{"id":"9eda3d148ab93dcd10180f7339202297","tags":[],"visible":true,"line_color":{"units":"data","value":"black"},"line_dash":[8,8],"line_width":{"units":"data","value":2}}},{"type":"GlyphRenderer","id":"1029961cdfad1c191facd12736ccd07d","attributes":{"id":"1029961cdfad1c191facd12736ccd07d","tags":[],"selection_glyph":null,"nonselection_glyph":{"type":"Segment","id":"a3f24bc4b13869176c52a854acf6bbc3"},"hover_glyph":{"type":"Segment","id":"9eda3d148ab93dcd10180f7339202297"},"name":null,"data_source":{"type":"ColumnDataSource","id":"b89218636d6d2b6de466f46707c0d6ce"},"glyph":{"type":"Segment","id":"8dc466b10c1a9cc91bb989aaccba8957"}}},{"type":"Legend","id":"319ad4eaf238c44398d839e78e7289c3","attributes":{"id":"319ad4eaf238c44398d839e78e7289c3","tags":[],"plot":{"type":"Plot","id":"163d87ff599535e7d237eb0e59d3edf7","subtype":"Figure"},"legends":[["lowess",[{"type":"GlyphRenderer","id":"2e757c60ea01eda9fd1c7e276baa61c2"}]],["lm",[{"type":"GlyphRenderer","id":"1029961cdfad1c191facd12736ccd07d"}]]],"location":"top_right"}},{"type":"Range1d","id":"a53f5151cda42aaf45dc45e0d36e014a","attributes":{"id":"a53f5151cda42aaf45dc45e0d36e014a","tags":[],"start":2.53,"end":26.47}},{"type":"Range1d","id":"4fae362db2afb80f4d0da6fbd7c71f09","attributes":{"id":"4fae362db2afb80f4d0da6fbd7c71f09","tags":[],"start":-6.26,"end":128.26}},{"type":"LinearAxis","id":"669e479b8cf0afeeb9fe451b1e9b30a5","attributes":{"id":"669e479b8cf0afeeb9fe451b1e9b30a5","tags":[],"plot":{"type":"Plot","id":"163d87ff599535e7d237eb0e59d3edf7","subtype":"Figure"},"axis_label":"speed","formatter":{"type":"BasicTickFormatter","id":"b4c2098a6669277b04a8e945dd057a89"},"ticker":{"type":"BasicTicker","id":"adffeed8657c706410831d2647378fee"},"visible":true,"axis_label_text_font_size":"12pt"}},{"type":"BasicTickFormatter","id":"b4c2098a6669277b04a8e945dd057a89","attributes":{"id":"b4c2098a6669277b04a8e945dd057a89","tags":[]}},{"type":"BasicTicker","id":"adffeed8657c706410831d2647378fee","attributes":{"id":"adffeed8657c706410831d2647378fee","tags":[],"num_minor_ticks":5}},{"type":"Grid","id":"c63d6fc0ffc7277224d7ca7826a2bd53","attributes":{"id":"c63d6fc0ffc7277224d7ca7826a2bd53","tags":[],"dimension":0,"plot":{"type":"Plot","id":"163d87ff599535e7d237eb0e59d3edf7","subtype":"Figure"},"ticker":{"type":"BasicTicker","id":"adffeed8657c706410831d2647378fee"}}},{"type":"LinearAxis","id":"68a7d6f8c094c583cb18f27bbddd2cba","attributes":{"id":"68a7d6f8c094c583cb18f27bbddd2cba","tags":[],"plot":{"type":"Plot","id":"163d87ff599535e7d237eb0e59d3edf7","subtype":"Figure"},"axis_label":"dist","formatter":{"type":"BasicTickFormatter","id":"9a3b336c29e6c98d78f84a5d022043a5"},"ticker":{"type":"BasicTicker","id":"743e1b67c0e8d74e5b3d1d0d25eba728"},"visible":true,"axis_label_text_font_size":"12pt"}},{"type":"BasicTickFormatter","id":"9a3b336c29e6c98d78f84a5d022043a5","attributes":{"id":"9a3b336c29e6c98d78f84a5d022043a5","tags":[]}},{"type":"BasicTicker","id":"743e1b67c0e8d74e5b3d1d0d25eba728","attributes":{"id":"743e1b67c0e8d74e5b3d1d0d25eba728","tags":[],"num_minor_ticks":5}},{"type":"Grid","id":"2a7a13c60351c636e2fe79482d0c1fa7","attributes":{"id":"2a7a13c60351c636e2fe79482d0c1fa7","tags":[],"dimension":1,"plot":{"type":"Plot","id":"163d87ff599535e7d237eb0e59d3edf7","subtype":"Figure"},"ticker":{"type":"BasicTicker","id":"743e1b67c0e8d74e5b3d1d0d25eba728"}}},{"type":"ColumnDataSource","id":"8a5e882cc10cda5b7da1af1345d846f8","attributes":{"id":"8a5e882cc10cda5b7da1af1345d846f8","tags":[],"column_names":["x0","y0","x1","y1"],"selected":[],"data":{"x0":[2.53],"y0":[-7.63010072992694],"x1":[26.47],"y1":[86.5117649635037]}}}]}}},"debug":false},"evals":[],"jsHooks":[]}</script>
+<!--
+<div id="footer">
+<br>
+Ibon Martínez Arranz &#149; Calle Santa Eulalia 45, 10ºD 48980 Santurtzi (Bizkaia) &#149;
+<br>☎ 626015495 &#149; ☎ 944838823  &#149; ✉ <span class="links"><a href='mailto:ibon.martinez@gmail.com?subject=Contacto a través de curriculum vitae&body=Estimado Ibon,'>ibon.martinez@gmail.com</a></span>
+</div>
+
+Ibon Martínez Arranz&nbsp;&nbsp;&nbsp;
+<a href="mailto:ibon.martinez@gmail.com"><i class="fa fa-envelope-square fa-2x"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="www.google.com"><i class="fa fa-linkedin-square fa-2x"></i>
+
+Ibon Martínez Arranz&nbsp;&nbsp;&nbsp;
+<a href="mailto:ibon.martinez@gmail.com"><i class="fa fa-envelope-square fa-2x"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="www.google.com"><i class="fa fa-linkedin-square fa-2x"></i>
+-->
+<div id="footer">
+<p>|   Ibon Martínez Arranz   |   2018   |   <a href="mailto:ibon.martinez@imarranz.com">contacto</a>   |</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

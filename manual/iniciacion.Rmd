@@ -1,0 +1,606 @@
+
+# Iniciación a `R`
+
+## Proyecto `R` 
+
+### ¿Qué es `R`?
+
+`R` es un lenguaje de programación para entorno estadístico y gráficos. La base del proyecto se encuentra en la siguiente dirección:
+
+[http://www.r-project.org/](http://www.r-project.org/)
+
+
+En esta dirección podremos descargar la última versión del programa así como acceder a toda la documentación, paquetes y librerías anexas, foros y otros proyectos relacionados.
+
+Se trata de un proyecto de software libre, resultado de la implementación GNU del premiado lenguaje S. `R` y S-Plus -versión comercial de S- son, probablemente, los dos lenguajes más utilizados en investigación por la comunidad estadística, siendo además muy populares en el campo de la investigación biomédica, la bioinformática y las matemáticas financieras. `R` se distribuye bajo la licencia GNU GPL y está disponible para los sistemas operativos Windows, Macintosh, Unix y GNU/Linux.
+
+### CRAN
+
+El mantenimiento del Proyecto `R` se realiza a traves del CRAN *The Comprehensive R Archive Network* donde se encuentran las últimas versiones del programa `R` y los paquetes anexos. Esta información se almacena en los Mirror[^mirror]. Estas réplicas u espejos se suelen crear para facilitar grandes descargas y facilitar el acceso a la información aun cuando haya fallos en el servicio del servidor principal. El listado oficial puede consultarse aquí [CRAN mirrors](https://cran.r-project.org/mirrors.html).
+
+[^mirror]: En Internet, un espejo, (del inglés, *mirror*), es un sitio web que contiene una réplica exacta de otro. Estas réplicas u espejos se suelen crear para facilitar descargas grandes y facilitar el acceso a la información aún cuando haya fallos en el servicio del servidor principal.
+
+### Propiedades
+
+* La capacidad de combinar, sin fisuras, análisis *preempaquetados* con análisis ad-hoc, específicos para una situación: capacidad de manipular y modificar datos y funciones.
+
+* Los gráficos de alta calidad: visualización de datos y producción de gráficos para artículos.
+
+* La comunidad de `R` es muy dinámica, con gran crecimiento del número de paquetes, e integrada por estadísticos de gran renombre (ej., J. Chambers, L. Terney, B. Ripley, D. Bates, \ldots).
+
+* Hay extensiones específicas a nuevas áreas como bioinformática, geoestadística y modelos gráficos.
+
+* Es un lenguaje orientado a objetos.
+
+### Instalación
+
+Depende del sistema operativo, pero todo se puede encontrar en
+
+[http://cran.es.r-project.org/bin](http://cran.es.r-project.org/bin)
+
+Para Windows se puede obtener un ejecutable desde
+
+[http://cran.es.r-project.org/bin/windows/base](http://cran.es.r-project.org/bin/windows/base)
+
+
+Al ejecutar el archivo se instalará el sistema base y los paquetes recomendados.
+
+### Paquetes
+
+`R` consta de un sistema base y de paquetes adicionales que extienden su funcionalidad. Podemos encontrarlos en
+
+
+[http://cran.es.r-project.org/src/contrib/PACKAGES.html](http://cran.es.r-project.org/src/contrib/PACKAGES.html)
+
+Tipos de paquetes:
+
+* Los que forman parte del sistema *base*: *ctest*, *graphics*, ... .
+
+* Los que no son parte del sistema base, pero son *recommended*: *xlsx*, *survival*, *nlme*, ... .
+
+* Otros paquetes (*UsingR*, *foreing*, ... ). éstos se han de seleccionar e instalar individualmente.
+
+### Documentación
+
+Los [manuales](https://cran.r-project.org/manuals.html) de `R`, incluidos en toda instalación.
+
+* [An introduction to R](https://cran.r-project.org/doc/manuals/r-release/R-intro.html) is based on the former "Notes on R"", gives an introduction to the language and how to use `R` for doing statistical analysis and graphics.
+
+* [R Data Import/Export](https://cran.r-project.org/doc/manuals/r-release/R-data.html) describes the import and export facilities available either in `R` itself or via packages which are available from CRAN.
+
+* [R Installation and Administration](https://cran.r-project.org/doc/manuals/r-release/R-admin.html).
+
+* [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) covers how to create your own packages, write `R` help files, and the foreign language (C, C++, Fortran, ...) interfaces.
+
+* A draft of [The R language definition](https://cran.r-project.org/doc/manuals/r-release/R-lang.html) documents the language per se. That is, the objects that it works on, and the details of the expression evaluation process, which are useful to know when programming `R` functions.
+
+* [R Internals](https://cran.r-project.org/doc/manuals/r-release/R-ints.html): a guide to the internal structures of R and coding standards for the core team working on `R` itself. 
+
+## Primeros pasos en `R`
+
+### Inicio
+
+Iniciar una sesión de `R`
+
+* Hacer doble-click en el icono. Se abrirá *Rgui.exe*.
+
+* Desde una ventana del sistema ejecutar *Rterm.exe*. Parecido a `R` en Unix o Linux.
+
+### GUI's de `R`
+
+El programa `R` viene con una GUI[^gui] que facilita la interacción entre el usuario y el programa. Hay otros proyectos abiertos que proporcionan otras GUI para `R`:
+
+* [RStudio](https://www.rstudio.com/), Es una interfaz gráfica multiplataforma con un entorno de trabajo muy completo.
+
+* [R Commander (Rcmdr)](http://rcommander.com/), una interfaz gráfica multiplataforma basada en tcltk.
+
+* [RKWard](https://rkward.kde.org/), basado en *KDE*.
+
+* [JGR](https://www.rforge.net/JGR/) o [Java GUI for R](https://www.rforge.net/JGR/), Una terminal de `R` multiplataforma basada en Java.
+
+* [RExcel](http://rcom.univie.ac.at/), que permite usar `R` y *Rcmdr* desde Microsoft Excel.
+
+* [rggobi](http://www.ggobi.org/rggobi/), Una interfaz a *GGobi* para visualización.
+
+[^gui]:  Del inglés *Graphical User Interface*.
+
+
+### Primera sesión
+
+```{r label = 'primera_sesion', echo = TRUE}
+2 + 2
+sqrt(10)
+log(100, base = 10)
+2*3*4*5
+# Intereses sobre 1000 euros
+1000*(1+0.075)^5 - 1000
+# R conoce pi
+pi
+# Convertimos ángulos a radianes y luego calculamos el seno
+sin(c(0,30,45,60,90)*pi/180)
+
+```
+
+### La ayuda en `R`
+
+* ?rnorm
+
+* help.start()
+
+* ?help.search
+
+* help.search("normal"")
+
+* ?apropos
+
+* apropos("normal"")
+
+* ?demo
+
+* demo(graphics); demo(persp); demo(lm.glm)
+
+### Instalar paquetes adicionales
+
+
+
+* Desde el menú `Packages -> Install package(s)`.
+
+* Primero nos pide seleccionar el "CRAN mirror", [CRAN mirrors](https://cran.r-project.org/mirrors.html).
+
+* Desde `R`, con `install.packages()`.
+
+* Desde una "ventana del sistema".
+
+* `Rcmd INSTALL paquete`
+
+### Un editor adeacuado
+
+¿Por qué usar `R` desde un editor?
+
+
+* El uso de scripts y el mantenimiento del código ordenado y comentado es una buena práctica estadística.
+
+* Colores de sintaxis, completa paréntesis, ...
+
+* Una interface común para otros paquetes estadísticos: *SAS*, *XLispStat*, *Arc*, *Excel*, ..., Numéricos: *Octave*, ... o procesador de texto: *LaTeX*, ... .
+
+Una buena elección: [RStudio](https://www.rstudio.com/).
+
+### Un primer ejemplo
+
+Sea $X$ una variable aleatorio con distribucióon exponencial de parámetro $\alpha$ y $X_1, X_2, \ldots , X_n$ una muestra aleatoria simple. Se sabe que la distribución de $Z = n \cdot \min \left\{X_1, X_ 2, \ldots , X_n\right\}$ es exponencial de parámetro $\alpha$.
+
+```{r label = 'primer_ejemplo_1', echo = TRUE}
+alpha <- 0.01
+n <- 50
+m <- 1000
+
+datos <- matrix(rexp(n * m, alpha), ncol=n)
+
+fz <- function(x) n*min(x)
+z <- apply(datos,1,fz)
+mean(z)
+```
+
+```{r label = 'primer_ejemplo_2', echo = TRUE, fig.cap = '', fig.align = 'center', fig.width = 7, fig.height = 5, fig.path = 'figuras/manual/'}
+hist(z, freq = FALSE)
+points(dexp(0:600,alpha), type = "l")
+ks.test(z,"pexp",alpha)
+```
+
+## Objetos de `R`
+
+Todo en `R` es un objeto, incluyendo funciones y estructuras de datos. Cada objeto tiene una estructura y características propias.
+
+* Para saber los objetos que tenemos en el espacio de trabajo utilizaremos `ls()`.
+
+* Escribir el nombre de un objeto muestra su contenido.
+
+* Para guardar el contenido del espacio de trabajo se pueden utilizar las funciones `save.image()` y `save(<objetos>, file = "nombre.RData")`.
+
+* Se puede acceder a objetos de la carpeta de trabajo o del camino que especifiquemos.
+
+### Tipos de objeto
+
+* Objetos del lenguaje
+  * Llamadas
+  * Expresiones
+  * Nombres
+* Expresiones
+* Funciones
+  * Lista de argumentos
+  * Código
+  * Entorno
+* Sin objeto: `NULL`
+
+#### Vector
+
+**Vector**: Colección ordenada de elementos del mismo tipo
+
+```{r, echo = TRUE}
+x <- c(1, 2, 3)
+x
+y <- c(FALSE, TRUE, TRUE)
+y
+z <- c("a", "b", "c")
+z
+```
+
+#### Array
+
+**Array**: Generalización multidimensional del vector. Elementos del mismo tipo.
+
+```{r, echo = TRUE}
+mat <- matrix(rnorm(9), ncol = 3)
+mat
+```
+
+#### Data frame
+
+**Data Frame**: Como el array, pero con columnas de diferentes tipos. Es el objeto más habitual para los datos experimentales.
+
+```{r, echo = TRUE}
+ejemplo <- data.frame(
+  ID = c("gen0", "genB", "genZ"),
+  subj1 = c(10, 25, 33), 
+  subj2 = c(NA, 34, 15),
+  oncogen = c(TRUE, TRUE, FALSE),
+  loc = c(1,30, 125))
+ejemplo
+```
+
+#### Factor
+
+**Factor**: Tipo de vector para datos cualitativos.
+
+```{r, echo = TRUE}
+x <- c(1, 2, 2, 1, 1, 2, 1, 2, 1)
+x
+x <- factor(c(1, 2, 2, 1, 1, 2, 1, 2, 1))
+x
+```
+
+#### Lista
+
+**Lista**: vector generalizado. Cada lista está formada por componentes que pueden ser de distinto tipo. Son contenedores generales de datos. Muy flexibles, pero sin estructura. Muchas funciones devuelven una lista o conjunto de resultados de distinta longitud y distinto tipo.
+
+```{r, echo = TRUE}
+una.lista <- list(vec = rnorm(5),
+                  mat = matrix(rnorm(4), ncol = 2))
+una.lista
+```
+
+#### Atributos
+
+* **Modo**: Tipo básico en un vector o array: lógico, entero, real, carácter, ... `mode`
+
+* **Tipo**: Tipo de los vectores o arrays: double, character, ... `typeof`
+
+* **Nombres**: Etiquetas de los elementos individuales de un vector o lista: `names`
+
+* **Dimensiones**: Dimensiones de los arrays (alguna puede ser cero): `dim`
+
+* **Dimnames**: Nombres de las dimensiones de los arrays: `dimnames`
+
+* **Clase**: Vector alfanumérico con la lista de las clases del objeto: `class`
+
+* **Otros**: Atributos de una serie temporal.
+
+```{r label = 'atributos', echo = TRUE}
+x <- 1:15; length(x)
+y <- matrix(5, nrow = 3, ncol = 4)
+dim(y)
+is.vector(x)
+is.vector(y)
+
+x1 <- 1:5
+x2 <- c(1, 2, 3, 4, 5)
+x3 <- "patata"
+x4 <- TRUE
+typeof(x1)
+typeof(x2)
+typeof(x3)
+typeof(x4)
+
+w <- data.frame(
+  Suj = c("Suj 1", "Suj 2", "Suj 3"),
+  Pes = c(56.1, 73.6, 81.2),
+  Alt = c(145, 165, 172))
+attributes(w)  
+
+f1 <- function(x) {
+  return(2 * x)
+  }
+attributes(f1)
+is.function(f1)
+f1(4)
+
+```
+
+#### Nombres
+
+* Los nombres válidos para un objeto son combinaciones de letras, números y el punto (".").
+
+* Los nombres no pueden empezar con un número.
+
+* `R` es *case-sensitive*: x != X.
+
+* Hay nombres reservados: *function*, *if*, ... .
+
+* Mejor evitar nombres que `R` usa: "c".
+
+* Las asignaciones se hacen con `<-` y se recomiendan los espacios. El signo `=` se reserva para los argumentos de las funciones.
+
+* La función `make.names()` convierte una cadena de texto en una cadena que pueda utilizarse como nombre de una variable en una matriz, data.frame, ...
+
+
+#### Operadores aritméticos
+
+* Suma `+`, resta `-`, multiplicación `*`, división `/`.
+
+* Potencia `^`, raíz cuadrada `sqrt()`.
+
+* División entera `%/%, módulo: resto de la división entera `%%`.
+
+* Logaritmos `log()`, `log10()`, `log2()`, `logb(x, base)`, exponencial `exp()`.
+
+* Trigonométricas `sin()`, `cos()`, `tan()`, `asin()`, `acos()`, `atan()`.
+
+* Otras `max()`, `min()`, `range()`, `pmax()`, `pmin()`, `mean()`, `median()`, `var()`, `sd()`, `quantile()`, `sum()`, `prod()`, `diff()`, `cumsum()`, `cumprod()`, `cummax()`, `cummin()`.
+
+## Gráficos en `R`
+
+* `R` incluye muchas y variadas funciones para hacer gráficos.
+
+* El sistema permite desde gráficos muy simples a figuras de calidad para incluir en artículos y libros.
+
+* También podemos ver un buen conjunto de ejemplos con `demo(graphics)`.
+
+* El comando `plot()` es uno de los más utilizados para realizar gráficos.
+
+* Si escribimos `plot`($x$, $y$) donde $x$ e $y$ son vectores con $n$ coordenadas, entonces `R` representa el gráfico de dispersión con los puntos de coordenadas ($x_i$, $y_i$).
+
+
+El principal comando para generar un gráfico en `R` es `plot()`. Si generamos un vector aleatorio de dimensión 10. Uno de los argumentos más útiles es `type` cuyos parámetros pueden ser: `p` para puntos, `l` para líneas, ... (?plot). Para representarlo gráficamente sólo tenemos que escribir:
+
+```{r label = 'ejemplos_plot_type', echo = TRUE, fig.cap = 'Representación de los mismos datos con la función *plot()* considerando diferentes argumentos para *type.*', fig.align = 'center', fig.path = 'figuras/manual/', fig.width = 7, fig.height = 6}
+x <- rnorm(10)
+par(mfrow = c(2,3), mar = c(3.1, 3.1, 2.1, 0.5))
+plot(x, type = "p", main = "type = p", xlab = "", ylab = "")
+plot(x, type = "l", main = "type = l", xlab = "", ylab = "")
+plot(x, type = "b", main = "type = b", xlab = "", ylab = "")
+plot(x, type = "c", main = "type = c", xlab = "", ylab = "")
+plot(x, type = "o", main = "type = o", xlab = "", ylab = "")
+plot(x, type = "h", main = "type = h", xlab = "", ylab = "")
+```
+
+Podemos modificar ciertos atributos del gráfico, por ejemplo el color de la línea (`col`) y el tamaño de la línea (`lwd`). `R` entiende como argumentos los nombres de los colores: `red`, `green`, `blue, `... Podemos ver los colores predefinidos con la función `colours()`.
+
+```{r label = 'ejemplos_plot_col', echo = TRUE, fig.cap = 'Uso de diferentes argumentos de la función *plot()*', fig.align = 'center', fig.path = 'figuras/manual/', fig.width = 6, fig.height = 6}
+plot(x, 
+     col = "red", 
+     type = "l", 
+     lwd = 5)
+```
+
+Podemos modificar los atributos de los límites del gráfico (`xlim`, `ylim`), las etiquetas de los ejes (`xlab`, `ylab`) y añadir un título (`main`). 
+
+```{r label = 'ejemplos_plot_argumentos', echo = TRUE, fig.cap = 'Uso de diferentes argumentos de la función *plot()*', fig.align = 'center', fig.path = 'figuras/manual/', fig.width = 6, fig.height = 6}
+plot(x,
+     col = "red",
+     type = "l",
+     lwd = 5,
+     ylim = c(-4, 4),
+     xlab = "Eje X",
+     ylab = "Eje Y",
+     main = "Nuestra primera gráfica en R")
+```
+
+### Líneas y puntos
+
+Sobre un gráfico creado podemos añadir información secundaria en forma de líneas (`lines()`, `abline()`) y puntos (`points()`). 
+
+```{r label = 'ejemplos_plot_lines_points', echo = TRUE, fig.cap = 'Uso de diferentes argumentos de la función *plot()*', fig.align = 'center', fig.path = 'figuras/manual/', fig.width = 6, fig.height = 6}
+
+plot(x,
+     col = "red",
+     type = "l",
+     lwd = 5,
+     ylim = c(-4,4),
+     xlab = "Eje X",
+     ylab = "Eje Y",
+     main = "Nuestra primera gráfica en R")
+
+points(x,
+       col = "blue",
+       cex = 3,
+       pch = 21,
+       bg = "green",
+       lwd = 3)
+
+abline(lm(x~seq(1,10)), 
+       lty = 3, 
+       lwd = 5, 
+       col = "orange")
+```
+
+### Texto
+
+Otra opción interesante es la de introducir texto en nuestras figuras, para ello utilizaremos el comando `text()` que permite añadir texto en cualquier zona del gráfico. 
+
+
+```{r label = 'ejemplos_plot_text', echo = TRUE, fig.cap = 'Uso de diferentes argumentos de la función *plot()*', fig.align = 'center', fig.path = 'figuras/manual/', fig.width = 6, fig.height = 6}
+
+plot(x,
+     col = "red",
+     type = "l",
+     lwd = 5,
+     ylim = c(-4, 4),
+     xlab = "Eje X",
+     ylab = "Eje Y",
+     main = "Nuestra primera gráfica en R")
+
+points(x,
+       col = "red",
+       cex = 3,
+       pch = 21,
+       bg = "red")
+
+text(x,
+     label = format(x, 
+                    digits = 2, 
+                    nsmall = 2),
+     cex = 1,
+     font = 2)
+```
+
+### Otros comandos
+
+El comando `plot()` no es el único que existe para generar figurar, hay otros como: `boxplot()`, `barplot()`, `cdplot()`, `pie()`, ...
+
+```{r label = 'ejemplos_plot_commands', echo = TRUE, fig.cap = 'Uso de diferentes argumentos de la función *plot()*', fig.align = 'center', fig.path = 'figuras/manual/', fig.width = 7, fig.height = 7}
+par(mfrow = c(2, 2))
+boxplot(InsectSprays$count ~ InsectSprays$spray, 
+        col = "red")
+
+barplot(tapply(InsectSprays$count, 
+               INDEX = InsectSprays$spray, 
+               FUN = "mean"))
+
+pie(table(InsectSprays$spray),
+    col = rainbow(6))
+
+barplot(tapply(InsectSprays$count,
+               INDEX = InsectSprays$spray,
+               FUN = "mean"),
+        horiz = TRUE,
+        col = "orange")
+
+```
+
+Podemos modificar márgenes exteriores de figuras y entre figuras (ver `?par`, opciones: `oma`, `omi`, `mar`, `mai`, ...).
+
+* También gráficos 3D: `persp()`, `image()`, `contour()`, ... 
+
+* Histogramas: `hist()`
+
+* Gráficos de barras: `barplot()`
+
+* Gráficos de comparación de cuantiles, usados para comparar la distribución de dos variables, o la disribución de unos datos frente a un estándar: `qqplot()`, `qqnorm()` y en el paquete `car`, `qq.plot()`.
+
+* Notación matemática (`plotmath()`) y expresiones de texto arbitrariamente complejas.
+
+## Programación en `R`
+
+*  Principales instrucciones
+  * if(cond) expr
+  * if(cond) cons.expr else alt.expr
+  * for(var in seq) expr
+  * while(cond) expr
+  * switch
+  * repeat expr
+  * break
+  * next
+
+La expresión `exp`} (también `alt.expr`) puede ser una expresión simple o compuestas.
+
+Uno de los errores más habituales es el olvido de los corchetes, llaves, ...  alrededor de las instrucciones, i.e. después de `if(...)}` o `for(...)`.
+
+### Comando if
+
+*IF* significa *SI* (condicional). Su funcionamiento es simple, se evalúa una condición, si es verdadera ejecuta un código, si es falsa, ejecuta otro código (o continúa con la ejecución del programa).
+
+```{r, echo = TRUE}
+
+f4 <- function(x) {
+  if(x > 5) print("x > 5")
+  else {
+  y <- runif(1)
+  print(paste("y es ", y))
+  }
+}
+f4(3)
+```
+
+### Comando ifelse
+
+`ifelse` es una versión vectorizada del comando `if`.
+
+```{r, echo = TRUE}
+x <- c(4, 6, 7, 3, 1, 3)
+ifelse(x>5, x/2, x*2)
+```
+
+### Comando for
+
+Una de las estructuras de repetición empleada en la programación de algoritmos para repetir un código (una o más sentencias de programación) dependiendo de un contador.
+
+```{r, echo = TRUE}
+for(i in 1:5) {
+  cat("el valor de i es", i, "\n")
+}
+```
+
+la instrucción `break` permite salir del bucle.
+
+### Comando while
+
+Existen otras estructuras de repetición que no dependen de un contador y si dependen de una condición.
+
+```{r, echo = TRUE}
+x <- 2
+while(x < 100) {
+  x <- x^2
+  print(x)
+}
+```
+
+Cuando el valor de $x$ es sido mayor o igual que 100, sale del bucle.
+
+### Comando switch
+
+Podemos utilizar estructuras condicionales para ejecutar acciones. la función `switch()` nos permite utilizar estas opciones
+
+```{r, echo = TRUE}
+
+cadena <- "R-project"
+
+switch("my",
+	my = toupper(cadena),
+	mn = tolower(cadena),
+	ig = cadena)
+
+switch("mn",
+	my = toupper(cadena),
+	mn = tolower(cadena),
+	ig = cadena)
+```
+
+Según el primer parámetro, se ejecuta una acción u otra.
+
+## Importar datos con `R`
+
+Si vamos a trabajar con un conjunto de datos grande, es evidente, que no los vamos a introducir *uno a uno*. `R` tiene varias funciones incorporadas para facilitar esta tarea y pude importar datos desde una gran variedad de formatos (\*.csv, \*.xls, \*.xlsx, \*.sav, \*.txt, ...). Vamos a centrarnos en las principales funciones:
+
+* `read.table()`.
+
+* `read.csv()`, `read.csv2()`.
+
+* `read.xls()`, 
+
+La función `read.xlx()` requiere al librería `xlsx`.
+
+### read.table()
+
+Con la función `read.table()` podemos importar directamente un `data.frame`. La sintaxis completa de la función es:
+
+
+```{r, echo = TRUE, eval = FALSE}
+read.table (fichero, header = TRUE, sep = " ", ...)
+```
+
+Donde `fichero` es el nombre del fichero que queremos leer, `header` indica si nuestro fichero tiene los nombres de las variables en el encabezado y `sep` indica la separación existente entre las variables (" " indica un espacio en blanco, $\backslash$t indica un tabulador, ";" indica punto y coma, ...).
+
+Hablamos de `read.csv()` y `read.csv2()`para leer ficheros con extensión *.csv[^csv] son un tipo de documento en formato abierto sencillo para representar datos en forma de tabla, en las que las columnas se separan por comas}. En muchos países europeos, el estándar es utilizar la "," (coma) como separador de los decimales y el ";" (punto y coma) como separador de las variables. Si nuestro fichero sigue este estándar, podemos utilizar la función `read.csv2()` que tiene estos argumentos por defecto.
+
+[^csv]: Los ficheros CSV (del inglés *comma-separated values*).

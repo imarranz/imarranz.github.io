@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title></title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="css/web_style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ibon Martínez Arranz</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home fa-2x"></span>
+     
+     Inicio
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="fa fa-user fa-2x"></span>
+     
+     Sobre mí
+  </a>
+</li>
+<li>
+  <a href="blog.html">
+    <span class="fa fa-comment fa-2x"></span>
+     
+     Blog
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-th-list fa-2x"></span>
+     
+     Más
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="manual.html">
+        <span class="fa fa-book fa-1x"></span>
+         
+         Manual de R
+      </a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="cv.html">
+        <span class="fa fa-user fa-1x"></span>
+         
+         CV
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=martinez-arranz">
+    <span class="fa fa-university fa-2x"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/company/owl">
+    <span class="fa fa-linkedin-square fa-2x"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://twitter.com/imarranz">
+    <span class="fa fa-twitter-square fa-2x"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="http://www.github.com/imarranz">
+    <span class="fa fa-github-square fa-2x"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+<div id="valoracion-de-los-modelos-lineales.-observaciones-atipicas-e-influyentes" class="section level3">
+<h3>Valoración de los modelos lineales. Observaciones atípicas e influyentes</h3>
+<p>Una forma razonada de determinar si una observación es influyente en un modelo estudiado es estimar la ecuación de regresión con esta observación y sin ella. Si los parámetros obtenidos no varían mucho, se podría concluir que la observación no es influyente. Sin embargo, si los parámetros calculados cambian al no considerar dicha observación se podría concluir que dicha observación si es influyente. Vamos a valorar la influencia de cada una de las observaciones en el modelo mediante diferentes indicadores y medidas de influencia <span class="citation">(Cook and Weisberg 1982; Altman and Krzywinski 2016a; Altman and Krzywinski 2016b)</span>. En la <strong>FIGURA 1</strong> se muestra gráficamente el efecto de estas medidas sobre una observación <span class="citation">(Weiner et al. 2003; Fox 1997)</span>.</p>
+<pre class="r"><code>par(mfrow = c(1,3), mar = c(0.5,1,1,0.5))
+plot(x = -5, y = -5, xlim = c(0,5), ylim = c(0,5), 
+     axes = TRUE, tcl = NA, yaxt = &quot;n&quot;, xaxt = &quot;n&quot;,
+     xlab = &quot;&quot;, ylab = &quot;&quot;)
+abline(h = 0:5, lty = 3, col = gray(0.7))
+abline(v = 0:5, lty = 3, col = gray(0.7))
+x &lt;- seq(1,2.5, length = 5)
+y &lt;- 0.5 + x + rnorm(5, mean = 0, sd = 0.1)
+points(x, y, pch = 16, cex = 1.2)
+x1 &lt;- 1.75
+y1 &lt;- 0.50
+points(x = x1, y = y1, pch = 8, cex = 1.2)
+abline(lm(y~x), lty = 2, lwd = 1)
+x1 &lt;- c(x,x1)
+y1 &lt;- c(y,y1)
+abline(lm(y1~x1), lwd = 1)
+text(x = 0.2, y = 4.8, labels = &quot;a)&quot;, cex = 1.2)
+
+plot(x = -5, y = -5, xlim = c(0,5), ylim = c(0,5), 
+     axes = TRUE, tcl = NA, yaxt = &quot;n&quot;, xaxt = &quot;n&quot;,
+     xlab = &quot;&quot;, ylab = &quot;&quot;)
+abline(h = 0:5, lty = 3, col = gray(0.7))
+abline(v = 0:5, lty = 3, col = gray(0.7))
+x &lt;- seq(1,2.5, length = 5)
+y &lt;- 0.5 + x + rnorm(5, mean = 0, sd = 0.1)
+points(x, y, pch = 16, cex = 1.2)
+x1 &lt;- 4.25
+y1 &lt;- 4.55
+points(x = x1, y = y1, pch = 8, cex = 1.2)
+abline(lm(y~x), lty = 2, lwd = 1)
+x1 &lt;- c(x,x1)
+y1 &lt;- c(y,y1)
+abline(lm(y1~x1), lwd = 1)
+text(x = 0.2, y = 4.8, labels = &quot;b)&quot;, cex = 1.2)
+
+plot(x = -5, y = -5, xlim = c(0,5), ylim = c(0,5), 
+     axes = TRUE, tcl = NA, yaxt = &quot;n&quot;, xaxt = &quot;n&quot;,
+     xlab = &quot;&quot;, ylab = &quot;&quot;)
+abline(h = 0:5, lty = 3, col = gray(0.7))
+abline(v = 0:5, lty = 3, col = gray(0.7))
+x &lt;- seq(1,2.5, length = 5)
+y &lt;- 0.5 + x + rnorm(5, mean = 0, sd = 0.1)
+points(x, y, pch = 16, cex = 1.2)
+x1 &lt;- 4.50
+y1 &lt;- 1.50
+points(x = x1, y = y1, pch = 8, cex = 1.2)
+abline(lm(y~x), lty = 2, lwd = 1)
+x1 &lt;- c(x,x1)
+y1 &lt;- c(y,y1)
+abline(lm(y1~x1), lwd = 1)
+text(x = 0.2, y = 4.8, labels = &quot;c)&quot;, cex = 1.2)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="graphics/blog/indicadores/ejemplos_relacion_leverage_influencia-1.png" alt="**FIGURA 1**: (a): Valor atípico pero sin influencia. A pesar de que su valor $Y$ es atípico dado su valor $X$, tiene poca influencia en la línea de regresión ya que está próxima a $\bar{X}$. (b) Valor atípico con efecto palanca ya que tiene un alto valor de $X$. Sin embargo, debido a que su valor de $Y$ es próximo al pronosticado por el modelo no tiene ninguna influencia. (c) Combinación de discrepancia (valor en $Y$ atípico) y apalancamiento (valor en $X$ atípico) que dan como resultado una fuerte influencia. En este caso, tanto la pendiente como la intersección cambian dramáticamente." width="576" />
+<p class="caption">
+<strong>FIGURA 1</strong>: (a): Valor atípico pero sin influencia. A pesar de que su valor <span class="math inline">\(Y\)</span> es atípico dado su valor <span class="math inline">\(X\)</span>, tiene poca influencia en la línea de regresión ya que está próxima a <span class="math inline">\(\bar{X}\)</span>. (b) Valor atípico con efecto palanca ya que tiene un alto valor de <span class="math inline">\(X\)</span>. Sin embargo, debido a que su valor de <span class="math inline">\(Y\)</span> es próximo al pronosticado por el modelo no tiene ninguna influencia. (c) Combinación de discrepancia (valor en <span class="math inline">\(Y\)</span> atípico) y apalancamiento (valor en <span class="math inline">\(X\)</span> atípico) que dan como resultado una fuerte influencia. En este caso, tanto la pendiente como la intersección cambian dramáticamente.
+</p>
+</div>
+<div id="apalancamiento-o-puntos-palanca-leverage" class="section level4">
+<h4>Apalancamiento o puntos palanca (<em>Leverage</em>)</h4>
+<p>A veces, un punto de la recta es capaz de determinar la recta de regresión. Si consideramos la pendiente de la recta de regresión como la media ponderada de las pendientes de todas las rectas que pueden construirse pasando por el centro de los datos y cada punto de la muestra el peso de cada pendiente en esta media ponderada vendrá dado por:</p>
+<span class="math display">\[\begin{equation}
+p_{i} = \dfrac{\left(x_i - \bar{x} \right)^2}{\displaystyle\sum_{j} \left(x_j - \bar{x} \right)^2}
+\label{equ:puntospalanca}
+\end{equation}\]</span>
+<p>Una conclusión de la anterior ecuación es que si existe una observación muy alejada de la media entonces</p>
+<span class="math display">\[\begin{equation}
+\left( x_i - \bar{x}\right)^2 \approx \displaystyle \sum_{j} \left(x_j - \bar{x} \right)^2
+\end{equation}\]</span>
+<p>y por lo tanto <span class="math inline">\(p_{i}\approx 1\)</span>, esto implica que la pendiente determinada por esta observación tendrá un peso decisivo en la estimación de la recta de regresión. Como la recta de regresión pasará por el punto <span class="math inline">\((\bar{x},\bar{y})\)</span>, si la observación tiene un alto valor de <span class="math inline">\(p_i\)</span> se denominará <em>puntos palanca</em> ya que tienen la capacidad de alterar la recta de regresión.</p>
+<p>Vamos a demostrar que <span class="math inline">\(p_i\)</span> toma valores entre 0 y <span class="math inline">\((n-1)/n\)</span>. Si consideramos una muestra <span class="math inline">\((x_1, x_2, \ldots, x_n)\)</span> y consideramos además que <span class="math inline">\(x_i\)</span> es mucho mayor que las demás observaciones, su efecto palanca en regresión dado por:</p>
+<span class="math display">\[\begin{equation}
+h_i = \dfrac{1}{n} + p_i = \dfrac{1}{n} + \dfrac{\left(x_i - \bar{x}\right)^2}{\displaystyle\sum_{j} \left(x_j - \bar{x} \right)^2} = \hat{n}_{i}^{-1}
+\label{equ:defhi}
+\end{equation}\]</span>
+<p>tiende a uno cuando <span class="math inline">\(x_i \rightarrow \infty\)</span>. Vamos a eliminar de <span class="math inline">\(\bar{x}\)</span> el efecto de <span class="math inline">\(x_i\)</span>. Si denotamos por <span class="math inline">\(\bar{x}_{(i)}\)</span> a la media de la muestra excluyendo precisamente el valor de <span class="math inline">\(x_i\)</span>, podemos poner:</p>
+<span class="math display">\[\begin{equation}
+x_i - \bar{x} = x_{i} - \left( \dfrac{n-1}{n} \bar{x}_{(i)} + \dfrac{1}{n} x_i \right) = \dfrac{n-1}{n} \left( x_i - \bar{x} \right)
+\label{equ:relacioni}
+\end{equation}\]</span>
+<p>Con la relación obtenida podemos reescribir <span class="math inline">\(h_i\)</span> de la siguiente manera:</p>
+<span class="math display">\[\begin{equation}
+\begin{array}{rcl}
+h_i &amp; = &amp; \dfrac{1}{n} + \dfrac{\left(x_i - \bar{x}\right)^2}{\displaystyle\sum_{j} \left(x_j - \bar{x} \right)^2} \\
+ &amp; = &amp; \dfrac{1}{n} + 
+ \dfrac{
+ \left(\dfrac{n-1}{n} \right)^2 \left(x_i - \bar{x}_{(i)} \right)^2
+ }{
+ \displaystyle\sum_{j\neq i}\left(x_j - \bar{x}_{(i)} \right)^2 + \dfrac{n-1}{n}\left(x_i - \bar{x}_{(i)} \right)^2
+ }
+\end{array}
+\label{equ:paralimite}
+\end{equation}\]</span>
+<p>Si en la expresión anterior hacemos límite cuando <span class="math inline">\(x_i\rightarrow\infty\)</span>, tenemos que:</p>
+<span class="math display">\[\begin{equation}
+\begin{array}{rcl}
+\displaystyle\lim_{x_i \rightarrow \infty} h_i &amp; = &amp; \dfrac{1}{n} + \displaystyle\lim_{x_i \rightarrow \infty} \dfrac{
+ \left(\dfrac{n-1}{n} \right)^2 \left(x_i - \bar{x}_{(i)} \right)^2
+ }{
+ \displaystyle\sum_{j\neq i}\left(x_j - \bar{x}_{(i)} \right)^2 + \dfrac{n-1}{n}\left(x_i - \bar{x}_{(i)} \right)^2
+ } \\
+ &amp; = &amp; \dfrac{1}{n} + \dfrac{n-1}{n} = 1
+ \end{array}
+\end{equation}\]</span>
+<p>Entonces <span class="math inline">\(p_i\)</span> toma un valor límite de <span class="math inline">\((n-1)/n\)</span>. Dos conclusiones directas de estos resultados son:</p>
+<ul>
+<li><p>Si <span class="math inline">\(x_i = \bar{x}\)</span> entonces <span class="math inline">\(h_i = 1/n\)</span>, es decir, un punto situado en la media de los datos tiene el mínimo efecto palanca (<span class="math inline">\(1/n\)</span>).</p></li>
+<li><p>Si la distancia <span class="math inline">\(\left(x_i - \bar{x} \right)^2\)</span> crece sin límite, el efecto palanca del punto <span class="math inline">\(x_i\)</span> tiende a un valor máximo de 1.</p></li>
+</ul>
+<p>A partir de la ecuación es inmediato comprobar que:</p>
+<span class="math display">\[\begin{equation}
+\displaystyle\sum_{i=1}^{n} h_i = 1 + \dfrac{\displaystyle\sum_{i=1}^{n}\left( x_i - \bar{x}\right)^2}{n S_{x}^{2}} = 2
+\end{equation}\]</span>
+<p>Por lo que el valor medio del efecto palanca será de <span class="math inline">\(2/n\)</span>. Una observación tiene alta influencia si <span class="citation">(Peña 2002)</span>:</p>
+<span class="math display">\[\begin{equation}
+h_i &gt; \dfrac{6}{n}
+\label{equ:hinfluencia}
+\end{equation}\]</span>
+</div>
+<div id="residuos-estandarizados" class="section level4">
+<h4>Residuos estandarizados</h4>
+<p>Una consecuencia de que las observaciones tengan distinto peso (<span class="math inline">\(p_i\)</span>) en la estimación del modelo es que el error en cada punto tenga distinta precisión. En cada punto se verifica la descomposición básica del modelo como puede verse en la <strong>FIGURA 2</strong>:</p>
+<span class="math display">\[\begin{equation}
+y_i = \hat{y}_i + e_i
+\label{equ:descomposicionbasica}
+\end{equation}\]</span>
+<p>y al estar las variables <span class="math inline">\(\hat{y}_i\)</span> y <span class="math inline">\(e_i\)</span> incorreladas, tenemos que:</p>
+<span class="math display">\[\begin{equation}
+Var\left(y_i | x_i\right) = \sigma^2 = Var\left( \hat{y}_i | x_i\right) + Var\left(e_i \right)
+\label{equ:varyi}
+\end{equation}\]</span>
+<p>Por otro lado, la varianza de la estimación de la media condicionada en el punto <span class="math inline">\(\hat{y}_i\)</span> puede obtenerse a partir de las varianzas de los coeficientes de la recta de regresión. Si escribimos la recta de regresión en desviaciones a la media:</p>
+<span class="math display">\[\begin{equation}
+\hat{y}_i = \bar{y} + \hat{\beta}_1\left(x_i - \bar{x} \right)
+\end{equation}\]</span>
+<p>Considerando que <span class="math inline">\(\bar{y}\)</span> y <span class="math inline">\(\beta_1\)</span> son independientes, aplicamos la varianza y sustituimos la expresión de la varianza del coeficiente de regresión:</p>
+<span class="math display">\[\begin{equation}
+\begin{array}{rcl}
+Var\left( \hat{y}_i \right) &amp; = &amp; Var\left(\bar{y} \right) + \left(x_i - \bar{x}\right) Var\left(\hat{\beta}_1\right) \\
+ &amp; = &amp; \dfrac{\sigma^2}{n} + \left(x_i - \bar{x}\right)^2 \dfrac{\sigma^2}{nS_{X}^{2}} \\
+ &amp; = &amp; \sigma^2 \left( \dfrac{1}{n} + \dfrac{\left(x_i - \bar{x}\right)}{nS_{X}^{2}}\right) \\
+ &amp; = &amp; \sigma^2 h_i
+\end{array}
+\label{equ:varhatyi}
+\end{equation}\]</span>
+<p>Luego la varianza de la estimación de la media condicional depende del efecto palanca del punto (<span class="math inline">\(h_i\)</span>):</p>
+<ul>
+<li><p>Si el punto <span class="math inline">\(x_i\)</span> está muy alejado de la media de las <span class="math inline">\(x\)</span> (<span class="math inline">\(\bar{x}\)</span>) y tiene efecto palanca, la variabilidad de la estimación de la media en ese punto será alta.</p></li>
+<li><p>Si el punto <span class="math inline">\(x_i\)</span> tiene poco efecto palanca, la variabilidad de la estimación será mucho menor.</p></li>
+</ul>
+<p>De las anteriores ecuaciones se deduce que:</p>
+<span class="math display">\[\begin{equation}
+\begin{array}{rcl}
+Var\left(\hat{y}_i\right) + Var\left(e_i\right) &amp; = &amp; \sigma^2\\
+Var\left(e_i\right) &amp; = &amp; \sigma^2 - Var\left(\hat{y}_i\right)\\
+Var\left(e_i\right) &amp; = &amp; \sigma^2 - \sigma^2 h_i \\
+Var\left(e_i\right) &amp; = &amp; \sigma^2 \left( 1 - h_i\right )
+\end{array}
+\label{equ:varei}
+\end{equation}\]</span>
+<p>Esta ecuación nos indica que las perturbaciones no se estiman con la misma precisión en todas las observaciones. En los puntos con alto efecto palanca (<span class="math inline">\(h_i \approx 1\)</span>) el residuo será pequeño y por lo tanto su varianza también. Por el contrario, en los puntos con bajo efecto palanca la variabilidad del residuo será mayor. Por esta razón, se definen los <em>residuos estandarizados</em>, <span class="math inline">\(r_i\)</span>, de la siguiente manera:</p>
+<span class="math display">\[\begin{equation}
+r_i = \dfrac{e_i}{\hat{S_{R}} \displaystyle\sqrt{1-h_i}}
+\label{equ:defresiduosestandarizados}
+\end{equation}\]</span>
+<p>Si las hipótesis del modelo son ciertas <span class="math inline">\(r_i \sim N(0,1)\)</span>. Al estar los <span class="math inline">\(r_i\)</span> libres de unidades por la estandarización podemos valorar directamente su tamaño.</p>
+</div>
+<div id="distancia-de-cook-cooks-distance" class="section level4">
+<h4>Distancia de Cook (<em>Cook’s Distance</em>)</h4>
+<p>Un procedimiento razonado para determinar si una observación es influyente en el modelo es estimar la ecuación de regresión con esta observación y sin ella. Si los coeficientes del modelo no varían mucho, podríamos concluir que dicha observación no es influyente. Por el contrario, si los parámetros del modelo cambian mucho concluiríamos que la observación es influyente.</p>
+<p>Una medida del cambio en la ecuación de regresión al eliminar el punto <span class="math inline">\(i\)</span> de la muestra puede definirse como:</p>
+<span class="math display">\[\begin{equation}
+D_i = \dfrac{\left(\hat{y}_i - \hat{y}_{i(i)} \right)^2} {2 Var\left(\hat{y}_i\right)}
+\label{equ:defcook}
+\end{equation}\]</span>
+<p>Donde <span class="math inline">\(\hat{y}_i\)</span> es el valor de la recta para <span class="math inline">\(x = x_i\)</span>, <span class="math inline">\(\hat{y}_{i(i)}\)</span> es el valor de la recta de regresión cuando se elimina la observación <span class="math inline">\(i\)</span> del cálculo de los parámetros de la recta y <span class="math inline">\(Var\left(\hat{y}_i\right)\)</span> es la variabilidad del valor <span class="math inline">\(\hat{y}_i\)</span>. El valor 2 tiene en cuenta el número de parámetros estimados en el modelo. Si tenemos en cuenta que <span class="math inline">\(Var\left(\hat{y}_i \right) = \sigma^2 h_i\)</span>, obtenemos la medida de <em>Influencia de Cook</em> o <em>Distancia de Cook</em>:</p>
+<span class="math display">\[\begin{equation}
+D_i = \dfrac{\left(\hat{y}_i - \hat{y}_{i(i)} \right)^2}{2\hat{S}_{R}^{2}h_i}
+\label{equ:defcook2}
+\end{equation}\]</span>
+<p>En la anterior ecuación se ha sustituido la varianza por su estimación. Se considera que una observación es influyente si <span class="math inline">\(D_i &gt; 1\)</span>, lo que supone, teniendo en cuenta la anterior ecuación, que al eliminar dicha observación del modelo, su predicción basada en el modelo cambia en más de <span class="math inline">\(\sqrt{2}\)</span> desviaciones típicas.</p>
+<div class="figure">
+<img src="figuras/blog/indicadores/influencia_punto_atipico_x.png" title="Influencia de un punto típico en las $x$. En el caso (a) el punto $A = (x_{A}, y_{A})$ es un punto palanca pero no tiene mucha influencia. En el caso (b) el punto $B = (x_{B}, y_{B})$ es un punto palanca y tiene mucha influencia en el modelo." alt="FIGURA 2: Influencia de un punto típico en las x. En el caso (a) el punto A = (x_{A}, y_{A}) es un punto palanca pero no tiene mucha influencia. En el caso (b) el punto B = (x_{B}, y_{B}) es un punto palanca y tiene mucha influencia en el modelo." />
+<p class="caption"><strong>FIGURA 2</strong>: Influencia de un punto típico en las <span class="math inline">\(x\)</span>. En el caso (a) el punto <span class="math inline">\(A = (x_{A}, y_{A})\)</span> es un punto palanca pero no tiene mucha influencia. En el caso (b) el punto <span class="math inline">\(B = (x_{B}, y_{B})\)</span> es un punto palanca y tiene mucha influencia en el modelo.</p>
+</div>
+<p>Los puntos palanca tienen la capacidad de ser influyentes en la estimación de los parámetros de los modelos, pero la influencia real se mide mediante el estadístico de Cook. En la <strong>FIGURA 2</strong> los puntos <span class="math inline">\((x_{A}, y_{A})\)</span> y <span class="math inline">\((x_{B}, y_{B})\)</span> son claramente puntos palanca, pero en el caso (a) el punto <span class="math inline">\(A\)</span> es atípico respecto de la distribución de las <span class="math inline">\(x\)</span> pero no respecto a <span class="math inline">\(y\)</span> ya que, como podemos observar en la <strong>FIGURA 2</strong>, el valor <span class="math inline">\(y_{A}\)</span> (ordenada del punto <span class="math inline">\(A\)</span>) es próximo al valor <span class="math inline">\(\hat{y}_{A}^{(2)}\)</span> ordenada prevista para dicho punto por la recta de ajuste sin incluir el punto <span class="math inline">\(A\)</span>. En este caso, el punto <span class="math inline">\(A = (x_{A}, y_{A})\)</span> es un punto palanca pero no influyente. Por el contrario, el punto palanca <span class="math inline">\(B = (x_{B}, y_{B})\)</span> es influyente, ya que la recta estimada sin el punto <span class="math inline">\(B\)</span> predice el valor <span class="math inline">\(\hat{y}_{B}^{(2)}\)</span> es muy distinto al predicho por la recta <span class="math inline">\(\hat{y}\)</span> con todos los datos.</p>
+<p>Identificar y controlar los puntos influyentes es muy importante, ya que una situación como la representada en la <strong>FIGURA 2</strong> indican discrepancias entre alguna observación y el modelo. Las discrepancias entre observaciones influyentes y el modelo pueden ser debidas a:</p>
+<ul>
+<li><p><strong>El modelo es correcto</strong> y el punto <span class="math inline">\(B = (x_{B}, y_{B})\)</span> es consecuencia de un error de medida o transcripción de dicha observación.</p></li>
+<li><p><strong>El valor <span class="math inline">\(B\)</span> es correcto</strong> y el problema es que el modelo no es correcto debido a alguna de las siguientes causas:</p>
+<ul>
+<li><p>La relación de <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> no es lineal en el intervalo <span class="math inline">\((\cdot, x_{B})\)</span>.</p></li>
+<li><p>La relación es lineal, pero la varianza del error aumenta con <span class="math inline">\(x\)</span>, es decir, hay un problema de <em>heterocedasticidad</em>.</p></li>
+<li><p>La relación es lineal y <em>homocedástica</em>, pero existe otra variable <span class="math inline">\(z\)</span> que influye en <span class="math inline">\(y\)</span> y que toma un valor distinto en el punto <span class="math inline">\(x_{B}\)</span>.</p></li>
+</ul></li>
+</ul>
+<p>Sólo los datos no pueden ayudarnos a decidir entre las anteriores opciones, por lo que será nuestro conocimiento y experiencia del problema lo que nos ayude a discriminar entre ellas.</p>
+<p>Existe una elevada influencia si:</p>
+<span class="math display">\[\begin{equation}
+D_{i} &gt; \dfrac{4}{n} 
+\label{equ:distanciacookinfluencia}
+\end{equation}\]</span>
+<p>Donde <em>n</em> es el tamaño muestral. Un valor <em>D &gt; 1</em> nos indica una observación influyente.</p>
+</div>
+<div id="otras-medidas-de-influencia" class="section level4">
+<h4>Otras medidas de influencia</h4>
+<p>Aunque el análisis de los residuos tipificados y la distancia de Cook, son los indicadores más estudiados y utilizados, existen otras medidas para cuantificar la influencia de una observación en la estimación del modelo. A continuación describimos brevemente los <em>DfBeta</em>, los <em>DfFit</em> y el <em>Ratio de la Covarianza</em>.</p>
+<div id="dfbeta" class="section level5">
+<h5>DfBeta</h5>
+<p>Recordamos que una observación influyente es aquella que combina discrepancia con efecto palanca. Por lo tanto, otra opción razonada para valorar estas observaciones sería examinar cómo los coeficientes de regresión cambian si se omiten los valores atípicos en el modelo.</p>
+<p>Definimos el índice <span class="math inline">\(\mbox{DfBeta}_{j(i)}\)</span> de la siguiente manera:</p>
+<span class="math display">\[\begin{equation}
+\mbox{DfBeta}_{j(i)} = \beta_j - \beta_{j(i)}\quad \forall i = 1, 2, \ldots, n\mbox{ y }j = 0, 1, \ldots, k
+\label{equ:defdfbeta}
+\end{equation}\]</span>
+<p>Donde <span class="math inline">\(\beta_j\)</span> es el término calculado con todas las observaciones y <span class="math inline">\(\beta_{j(i)}\)</span> está calculado sin la <span class="math inline">\(i\)</span>-ésima observación. Este indicador mide la influencia de cada observación en los diferentes coeficientes del modelo. Se mide en términos del error estándar.</p>
+<span class="math display">\[\begin{equation}
+\left| \mbox{DfBeta}_{j(i)} \right| = \left| \dfrac{\widehat{\beta}_j - \widehat{\beta}_{j(i)} }{\sqrt{\widehat{\sigma}^2_{(i)} \left(X^{T}X \right)^{-1}_{jj}}}\right| \label{equ:dfbeta}
+\end{equation}\]</span>
+<p>Un observación tiene influencia si tiene un efecto significativo en el coeficiente. Se dirá que una observación tiene influencia atípica si:</p>
+<span class="math display">\[\begin{equation}
+\left| \mbox{DfBeta}_{j(i)}\right| &gt; \dfrac{2}{\sqrt{n}} 
+\label{equ:dfbetainfluencia}
+\end{equation}\]</span>
+<p>Donde <em>n</em> es el número de observaciones.</p>
+</div>
+<div id="dffit" class="section level5">
+<h5>DfFit</h5>
+<p>DfFit es un indicador del <em>leverage</em> (<em>apalancamiento</em>) y altos residuos. Ésta es una medida que mide la cantidad de una observación influye en el modelo de regresión en su conjunto. La cantidad de los valores previstos cambian como resultado de inclusión y exclusión de una observación particular.</p>
+<span class="math display">\[\begin{equation}
+\left| \mbox{DfFit}_{(i)} \right| = \left| {\widehat{y}_i - \widehat{y}_{i(i)} \over s_{(i)} \sqrt{h_{ii}}}\right| 
+\label{equ:dffit}
+\end{equation}\]</span>
+<p>Consideramos que una observación tiene una influencia alta si:</p>
+<span class="math display">\[\begin{equation}
+\left| \mbox{DfFit}_{(i)}\right| &gt; 2\cdot \sqrt{\dfrac{k}{n}} 
+\label{equ:dffitinfluencia}
+\end{equation}\]</span>
+<p>Donde <em>k</em> es el número de parámetros (incluido el término de intersección o independiente <span class="math inline">\(\beta_{0}\)</span>) y <em>n</em> es el tamaño muestral.</p>
+</div>
+<div id="ratio-de-la-covarianza-covariance-ratio" class="section level5">
+<h5>Ratio de la Covarianza (<em>Covariance Ratio</em>)</h5>
+<p>El <em>Ratio de la Covarianza</em> mide el impacto de una observación en el error estándar del modelo.</p>
+<span class="math display">\[\begin{equation}
+C_{i} = \frac{\left| S^2_{(i)} ({X_{(i)}&#39;} X_{(i)})^{-1} \right|}{\left| S^2 ({X&#39;}X)^{-1} \right| } \label{covratio}
+\end{equation}\]</span>
+<p>Hay un alto impacto si se cumple que:</p>
+<span class="math display">\[\begin{equation}
+\left| C_{i} - 1\right| \ge 3 \cdot \dfrac{k}{n} \label{covratioinfluencia}
+\end{equation}\]</span>
+<p>Donde <em>k</em> es el número de parámetros (incluido el término de intersección o independiente <span class="math inline">\(\beta_{0}\)</span>) y <em>n</em> es el tamaño muestral.</p>
+<p>En la <strong>FIGURA 3</strong> se muestra un ejemplo de un modelo lineal al que se le ha añadido una observación atípica (marcada en rojo) y se han analizado los diferentes indicadores de bondad del modelo y el efecto de dicha observación. En a) se muestran las observaciones y el modelo de regresión lineal. En b) se muestran las diferencias entre el valor <span class="math inline">\(y\)</span> observado y el valor <span class="math inline">\(\hat{y}\)</span> pronosticado por el modelo, vemos que la observación atípica destaca frente al resto por su diferencia entre <span class="math inline">\((y-\hat{y})\)</span>. En c) se analiza la distribución de los residuos estandarizados, que debieran seguir una distribución normal. En d) se analiza los residuos estandarizados comparados con el indicador de apalancamiento (leverage). En e) se muestra la distancia de Cook de cada muestra y vemos que la observación atípica tiene una distancia mucho mayor al resto de observaciones. En f) se muestra el cambio en la desviación estándar residual al eliminar cada una de las muestras y vemos que al eliminar la observación atípica la desviación estándar residual disminuye considerablemente.</p>
+<p>En la <strong>TABLA 1</strong> se muestra el resto de aplicar las medidas de influencia anteriormente definidas sobre los datos utilizado para representar la <strong>FIGURA 3</strong>. En la <strong>FIGURA 4</strong> se muestran gráficamente los resultados de la <strong>TABLA 1</strong> y observamos que no en todas las medidas la podemos deducir que nuestra observación es atípica, por ejemplo para la medida <span class="math inline">\(\mbox{DfBeta}_1\)</span> y <span class="math inline">\(h_{ii}\)</span>. Podemos concluir entonces que nuestra observación no afecta al parámetro <span class="math inline">\(\beta_{1}\)</span> (pendiente) pero sí afecta al parámetro <span class="math inline">\(\beta_{0}\)</span> y que además, como es una observación central, no tiene efecto de influencia.</p>
+<table id="medidas_influencia" style="width:90%" align="center">
+<caption>
+<strong>TABLA 1</strong>: Medidas de influencia de cada una de las observaciones utilizadas para realizar la <strong>FIGURA 3</strong>. La observación 10 es claramente un punto de influencia del modelo cumpliéndose varios de los criterios de punto de influencia en los diferentes indicadores.
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+x
+</th>
+<th style="text-align:right;">
+y
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(h_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(r_i\)</span>
+</th>
+<th style="text-align:right;">
+Cook’s Distance
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\mbox{DfBeta}_0\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\mbox{DfBeta}_1\)</span>
+</th>
+<th style="text-align:right;">
+DfFit
+</th>
+<th style="text-align:right;">
+Covariance Ratio
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+14,440
+</td>
+<td style="text-align:right;">
+0,186
+</td>
+<td style="text-align:right;">
+-0,914
+</td>
+<td style="text-align:right;">
+0,095
+</td>
+<td style="text-align:right;">
+-0,434
+</td>
+<td style="text-align:right;">
+0,371
+</td>
+<td style="text-align:right;">
+-0,434
+</td>
+<td style="text-align:right;">
+1,252
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+16,174
+</td>
+<td style="text-align:right;">
+0,159
+</td>
+<td style="text-align:right;">
+0,226
+</td>
+<td style="text-align:right;">
+0,005
+</td>
+<td style="text-align:right;">
+0,095
+</td>
+<td style="text-align:right;">
+-0,079
+</td>
+<td style="text-align:right;">
+0,095
+</td>
+<td style="text-align:right;">
+1,325
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+13,519
+</td>
+<td style="text-align:right;">
+0,135
+</td>
+<td style="text-align:right;">
+-0,237
+</td>
+<td style="text-align:right;">
+0,004
+</td>
+<td style="text-align:right;">
+-0,090
+</td>
+<td style="text-align:right;">
+0,072
+</td>
+<td style="text-align:right;">
+-0,091
+</td>
+<td style="text-align:right;">
+1,287
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+11,274
+</td>
+<td style="text-align:right;">
+0,114
+</td>
+<td style="text-align:right;">
+-0,543
+</td>
+<td style="text-align:right;">
+0,019
+</td>
+<td style="text-align:right;">
+-0,186
+</td>
+<td style="text-align:right;">
+0,142
+</td>
+<td style="text-align:right;">
+-0,190
+</td>
+<td style="text-align:right;">
+1,224
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+8,583
+</td>
+<td style="text-align:right;">
+0,095
+</td>
+<td style="text-align:right;">
+-0,999
+</td>
+<td style="text-align:right;">
+0,053
+</td>
+<td style="text-align:right;">
+-0,309
+</td>
+<td style="text-align:right;">
+0,224
+</td>
+<td style="text-align:right;">
+-0,324
+</td>
+<td style="text-align:right;">
+1,106
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+10,125
+</td>
+<td style="text-align:right;">
+0,080
+</td>
+<td style="text-align:right;">
+0,018
+</td>
+<td style="text-align:right;">
+0,000
+</td>
+<td style="text-align:right;">
+0,005
+</td>
+<td style="text-align:right;">
+-0,003
+</td>
+<td style="text-align:right;">
+0,005
+</td>
+<td style="text-align:right;">
+1,219
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+10,799
+</td>
+<td style="text-align:right;">
+0,068
+</td>
+<td style="text-align:right;">
+0,722
+</td>
+<td style="text-align:right;">
+0,019
+</td>
+<td style="text-align:right;">
+0,167
+</td>
+<td style="text-align:right;">
+-0,100
+</td>
+<td style="text-align:right;">
+0,193
+</td>
+<td style="text-align:right;">
+1,135
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+6,521
+</td>
+<td style="text-align:right;">
+0,059
+</td>
+<td style="text-align:right;">
+-0,278
+</td>
+<td style="text-align:right;">
+0,002
+</td>
+<td style="text-align:right;">
+-0,054
+</td>
+<td style="text-align:right;">
+0,027
+</td>
+<td style="text-align:right;">
+-0,068
+</td>
+<td style="text-align:right;">
+1,182
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+5,680
+</td>
+<td style="text-align:right;">
+0,053
+</td>
+<td style="text-align:right;">
+-0,097
+</td>
+<td style="text-align:right;">
+0,000
+</td>
+<td style="text-align:right;">
+-0,015
+</td>
+<td style="text-align:right;">
+0,006
+</td>
+<td style="text-align:right;">
+-0,022
+</td>
+<td style="text-align:right;">
+1,183
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+15,000
+</td>
+<td style="text-align:right;">
+0,050
+</td>
+<td style="text-align:right;">
+3,548
+</td>
+<td style="text-align:right;">
+0,334
+</td>
+<td style="text-align:right;">
+0,804
+</td>
+<td style="text-align:right;">
+-0,125
+</td>
+<td style="text-align:right;">
+1,448
+</td>
+<td style="text-align:right;">
+0,107
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+4,471
+</td>
+<td style="text-align:right;">
+0,050
+</td>
+<td style="text-align:right;">
+0,425
+</td>
+<td style="text-align:right;">
+0,005
+</td>
+<td style="text-align:right;">
+0,039
+</td>
+<td style="text-align:right;">
+0,008
+</td>
+<td style="text-align:right;">
+0,096
+</td>
+<td style="text-align:right;">
+1,157
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+-1,611
+</td>
+<td style="text-align:right;">
+0,053
+</td>
+<td style="text-align:right;">
+-1,183
+</td>
+<td style="text-align:right;">
+0,039
+</td>
+<td style="text-align:right;">
+-0,070
+</td>
+<td style="text-align:right;">
+-0,072
+</td>
+<td style="text-align:right;">
+-0,284
+</td>
+<td style="text-align:right;">
+1,007
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+0,949
+</td>
+<td style="text-align:right;">
+0,059
+</td>
+<td style="text-align:right;">
+0,159
+</td>
+<td style="text-align:right;">
+0,001
+</td>
+<td style="text-align:right;">
+0,004
+</td>
+<td style="text-align:right;">
+0,015
+</td>
+<td style="text-align:right;">
+0,039
+</td>
+<td style="text-align:right;">
+1,189
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+-0,653
+</td>
+<td style="text-align:right;">
+0,068
+</td>
+<td style="text-align:right;">
+0,080
+</td>
+<td style="text-align:right;">
+0,000
+</td>
+<td style="text-align:right;">
+-0,001
+</td>
+<td style="text-align:right;">
+0,011
+</td>
+<td style="text-align:right;">
+0,021
+</td>
+<td style="text-align:right;">
+1,203
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+-0,565
+</td>
+<td style="text-align:right;">
+0,080
+</td>
+<td style="text-align:right;">
+0,586
+</td>
+<td style="text-align:right;">
+0,015
+</td>
+<td style="text-align:right;">
+-0,027
+</td>
+<td style="text-align:right;">
+0,105
+</td>
+<td style="text-align:right;">
+0,170
+</td>
+<td style="text-align:right;">
+1,173
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+-2,268
+</td>
+<td style="text-align:right;">
+0,095
+</td>
+<td style="text-align:right;">
+0,474
+</td>
+<td style="text-align:right;">
+0,012
+</td>
+<td style="text-align:right;">
+-0,039
+</td>
+<td style="text-align:right;">
+0,104
+</td>
+<td style="text-align:right;">
+0,151
+</td>
+<td style="text-align:right;">
+1,209
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+-6,674
+</td>
+<td style="text-align:right;">
+0,114
+</td>
+<td style="text-align:right;">
+-0,592
+</td>
+<td style="text-align:right;">
+0,022
+</td>
+<td style="text-align:right;">
+0,070
+</td>
+<td style="text-align:right;">
+-0,156
+</td>
+<td style="text-align:right;">
+-0,208
+</td>
+<td style="text-align:right;">
+1,216
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+-6,609
+</td>
+<td style="text-align:right;">
+0,135
+</td>
+<td style="text-align:right;">
+-0,087
+</td>
+<td style="text-align:right;">
+0,001
+</td>
+<td style="text-align:right;">
+0,013
+</td>
+<td style="text-align:right;">
+-0,027
+</td>
+<td style="text-align:right;">
+-0,033
+</td>
+<td style="text-align:right;">
+1,294
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+-8,784
+</td>
+<td style="text-align:right;">
+0,159
+</td>
+<td style="text-align:right;">
+-0,380
+</td>
+<td style="text-align:right;">
+0,014
+</td>
+<td style="text-align:right;">
+0,073
+</td>
+<td style="text-align:right;">
+-0,133
+</td>
+<td style="text-align:right;">
+-0,161
+</td>
+<td style="text-align:right;">
+1,311
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+-12,205
+</td>
+<td style="text-align:right;">
+0,186
+</td>
+<td style="text-align:right;">
+-1,142
+</td>
+<td style="text-align:right;">
+0,149
+</td>
+<td style="text-align:right;">
+0,275
+</td>
+<td style="text-align:right;">
+-0,470
+</td>
+<td style="text-align:right;">
+-0,550
+</td>
+<td style="text-align:right;">
+1,185
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>set.seed(134)
+x &lt;- 1:20
+y &lt;- 17 - 1.3*x + rnorm(length(x), mean = 0, sd = 1.5)
+y[10] &lt;- 15
+
+modelo.lm &lt;- lm(y~x)
+
+colores &lt;- rep(gray(0.4), 20)
+colores[10] &lt;- colours()[556]
+
+# MODELO ------------------------------------------------------------------
+
+# par(mar = c(5.1, 4.1, 1.1, 1.1), mfrow = c(3, 2))
+par(mfrow = c(3, 2), mar = c(5.6, 6.1, 2.1, 1.1), mgp = c(3.0, 0.8, 0))
+plot(x, y, yaxt = &quot;n&quot;, 
+     xlim = extendrange(range(x), f = 0.08),
+     pch = 16, col = colores, cex = 1.8,
+     cex.main = 1.3, cex.lab = 1.3, cex.axis = 1.3)
+abline(v = pretty(x), lty = 10, col = gray(0.7))
+abline(h = pretty(y), lty = 10, col = gray(0.7))
+axis(2, las = 2, cex.axis = 1.3)
+abline(modelo.lm, lty = 1, lwd = 2, col = gray(0.6))
+mtext(text = &quot;a)&quot;, side = 3, line = 1, adj = -0.4)
+
+# Y.HAT -------------------------------------------------------------------
+
+y.hat &lt;- predict(modelo.lm)
+plot(x = y.hat,
+     y = y - y.hat,
+     ylim = extendrange(range(y - y.hat,
+                              na.rm = TRUE), 
+                        f = 0.08),
+     xlab = &quot;Fitted values&quot;,
+     main = &quot;Residuals vs Fitted&quot;,
+     cex.main = 1.3, cex.lab = 1.3, cex.axis = 1.3,
+     ylab = expression(Residuals~~(y-hat(y))),
+     pch = 16, cex = 1.8, col = colores,
+     yaxt = &quot;n&quot;
+)
+axis(2, las = 2, cex.axis = 1.3)
+abline(h = 0, lty = 3, col = &quot;gray&quot;, lwd = 3)
+mtext(text = &quot;b)&quot;, side = 3, line = 1, adj = -0.4)
+
+# NORMAL Q-Q --------------------------------------------------------------
+  
+rs &lt;- rstandard(modelo.lm)
+qqnorm(rs, main = &quot;Normal Q-Q&quot;, cex.main = 1.2,
+       pch = 16, cex = 1.8, yaxt = &quot;n&quot;,
+       cex.main = 1.3, cex.lab = 1.3, cex.axis = 1.3,
+       ylim = extendrange(range(rs, na.rm = TRUE), f = 0.08),
+       col = colores,
+       xlab = &quot;Theoretical Quantiles&quot;,
+       ylab = &quot;Standardized\nresiduals&quot;)
+axis(2, las = 2, cex.axis = 1.3)
+qqline(rs, lty = 3, col = gray(0.5), lwd = 2)
+mtext(text = &quot;c)&quot;, side = 3, line = 1, adj = -0.4)
+
+# RESIDUALS VS LEVERAGE ---------------------------------------------------
+
+plot(rstandard(modelo.lm) ~ hatvalues(modelo.lm),
+     main = &quot;Residual vs Leverage&quot;,
+     pch = 16, cex = 1.8,
+     col = colores,
+     cex.main = 1.3, cex.lab = 1.3, cex.axis = 1.3,
+     xlim = range(c(0, hatvalues(modelo.lm))),
+     yaxt = &quot;n&quot;,
+     xlab = &quot;Leverage&quot;, ylab = &quot;Standardized\nresiduals&quot;)
+axis(2, las = 2, cex.axis = 1.3)
+
+hh &lt;- seq(0, 1.0, by = 0.02)
+p &lt;- 2 # Número de parámetros del modelo lineal
+
+for (i in 1:4) {
+  crit &lt;- c(0.25, 0.50, 0.75, 1.00)[i]
+  cl.h &lt;- sqrt(crit * p * (1 - hh)/hh)
+  lines(hh, cl.h, lty = 3, col = rainbow(6)[i], lwd = 3)
+  lines(hh, -cl.h, lty = 3, col = rainbow(6)[i], lwd = 3)
+}
+
+abline(h = 0, lty = 2, col = gray(0.5))
+abline(v = 0, lty = 2, col = gray(0.5))
+
+legend(x = &quot;topleft&quot;, bty = &quot;n&quot;,
+       cex = 1.2,
+       pch = 16, col = rainbow(6)[1:4],
+       legend = c(0.25, 0.50, 0.75, 1.00))
+mtext(text = &quot;d)&quot;, side = 3, line = 1, adj = -0.4)
+
+# COOK&#39;S DISTANCE VS LEVERAGE ---------------------------------------------
+
+cook &lt;- cooks.distance(modelo.lm)
+
+plot(cook, type = &quot;h&quot;, lwd = 5,
+     ylim = range(c(0, cook)), 
+     pch = 16, cex = 1.8,
+     col = colores,
+     cex.main = 1.3, cex.lab = 1.3, cex.axis = 1.3,
+     main = &quot;Cook&#39;s Distance&quot;,
+     ylab = &quot;Cook&#39;s Distance&quot;,
+     xlab = &quot;Obs. number&quot;,
+     yaxt = &quot;n&quot;)
+axis(2, las = 2, cex.axis = 1.3)
+mtext(text = &quot;e)&quot;, side = 3, line = 1, adj = -0.4)
+
+# RESIDUAL STANDARD DEVIATION ---------------------------------------------
+
+plot(influence(modelo.lm)$sigma, type = &quot;h&quot;, lwd = 5,
+     ylim = range(c(0, influence(modelo.lm)$sigma)), 
+     col = colores, pch = 16, cex = 1.8,
+     cex.main = 1.3, cex.lab = 1.3, cex.axis = 1.3,
+     main = &quot;Residual standard deviation&quot;,
+     ylab = &quot;Residual\nstandard deviation&quot;,
+     xlab = &quot;Obs. number&quot;,
+     yaxt = &quot;n&quot;)
+axis(2, las = 2, cex.axis = 1.3)
+abline(h = summary(modelo.lm)[[6]], col = &quot;red&quot;, lty = 1, lwd = 2)  
+mtext(text = &quot;f)&quot;, side = 3, line = 1, adj = -0.4)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="graphics/blog/indicadores/ejemplo_indicadores-1.png" alt="**FIGURA 3**: En a) se muestran las observaciones y el modelo de regresión lineal. En b) se muestran las diferencias entre el valor $y$ observado y el valor $\hat{y}$ pronosticado por el modelo. En c) se analiza la distribución de los residuos estandarizados. En d) se analiza los residuos estandarizados comparados con el indicador de apalancamiento (leverage). En e) se muestra la distancia de Cook de cada muestra y en f) se muestra el cambio en la desviación estandar residual al eliminar cada una de las muestras." width="566.976" />
+<p class="caption">
+<strong>FIGURA 3</strong>: En a) se muestran las observaciones y el modelo de regresión lineal. En b) se muestran las diferencias entre el valor <span class="math inline">\(y\)</span> observado y el valor <span class="math inline">\(\hat{y}\)</span> pronosticado por el modelo. En c) se analiza la distribución de los residuos estandarizados. En d) se analiza los residuos estandarizados comparados con el indicador de apalancamiento (leverage). En e) se muestra la distancia de Cook de cada muestra y en f) se muestra el cambio en la desviación estandar residual al eliminar cada una de las muestras.
+</p>
+</div>
+<pre class="r"><code>set.seed(134)
+x &lt;- 1:20
+y &lt;- 17 - 1.3*x + rnorm(length(x), mean = 0, sd = 1.5)
+y[10] &lt;- 15
+modelo.lm &lt;- lm(y~x)
+X &lt;- cbind(1:20,y, influence.measures(modelo.lm)$infmat)
+
+colores &lt;- rep(gray(0.4), 20)
+colores[10] &lt;- colours()[556]
+
+par(mfrow = c(3,2), mar = c(2.8, 4.1, 1.1, 1.1), mgp = c(2.0,0.5, 0.0))
+plot(X[, 3], type = &quot;h&quot;, 
+     col = colores, yaxt = &quot;n&quot;,
+     ylim = extendrange(range(X[, 3]), f = 0.08),
+     lwd = 4,
+     xlab = &quot;Observación&quot;, ylab = expression(DfBeta[0]))
+axis(2, las = 2)
+abline(h = 2/sqrt(20), lty = 2, col = gray(0.7))
+abline(h = -2/sqrt(20), lty = 2, col = gray(0.7))
+mtext(&quot;a)&quot;, side = 3, adj = -0.2, line = 0.1, cex = 0.8)
+
+plot(X[, 4], type = &quot;h&quot;, 
+     col = colores, yaxt = &quot;n&quot;,
+     ylim = extendrange(range(X[, 4]), f = 0.08),
+     lwd = 4,
+     xlab = &quot;Observación&quot;, ylab = expression(DfBeta[1]))
+axis(2, las = 2)
+abline(h = 2/sqrt(20), lty = 2, col = gray(0.7))
+abline(h = -2/sqrt(20), lty = 2, col = gray(0.7))
+mtext(&quot;b)&quot;, side = 3, adj = -0.2, line = 0.1, cex = 0.8)
+
+plot(X[, 5], type = &quot;h&quot;, 
+     col = colores, yaxt = &quot;n&quot;,
+     ylim = extendrange(range(X[, 5]), f = 0.08),
+     lwd = 4,
+     xlab = &quot;Observación&quot;, ylab = &quot;DfFit&quot;)
+axis(2, las = 2)
+abline(h = 2*sqrt(2/20), lty = 2, col = gray(0.7))
+abline(h = -2*sqrt(2/20), lty = 2, col = gray(0.7))
+mtext(&quot;c)&quot;, side = 3, adj = -0.2, line = 0.1, cex = 0.8)
+
+plot(X[, 6], type = &quot;h&quot;, 
+     col = colores, yaxt = &quot;n&quot;,
+     ylim = extendrange(range(X[, 6]), f = 0.05),
+     lwd = 4,
+     xlab = &quot;Observación&quot;, ylab = &quot;Covariance Ratio&quot;)
+axis(2, las = 2)
+abline(h = 3*(2/20) + 1, lty = 2, col = gray(0.7))
+abline(h = -3*(2/20) + 1, lty = 2, col = gray(0.7))
+mtext(&quot;d)&quot;, side = 3, adj = -0.2, line = 0.1, cex = 0.8)
+
+plot(X[, 7], type = &quot;h&quot;, 
+     col = colores, yaxt = &quot;n&quot;,
+     ylim = extendrange(range(X[, 7]), f = 0.05),
+     lwd = 4,
+     xlab = &quot;Observación&quot;, ylab = &quot;Cook&#39;s Distance&quot;)
+axis(2, las = 2)
+abline(h = 4/20, lty = 2, col = gray(0.7))
+mtext(&quot;e)&quot;, side = 3, adj = -0.2, line = 0.1, cex = 0.8)
+
+plot(X[, 8], type = &quot;h&quot;, 
+     col = colores, yaxt = &quot;n&quot;,
+     ylim = extendrange(range(c(0,X[, 8])), f = 0.05),
+     lwd = 4,
+     xlab = &quot;Observación&quot;, ylab = expression(h[ii]))
+axis(2, las = 2)
+abline(h = 2*2/20, lty = 2, col = gray(0.7))
+mtext(&quot;f)&quot;, side = 3, adj = -0.2, line = 0.1, cex = 0.8)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="graphics/blog/indicadores/ejemplo_indicadores_2-1.png" alt="**FIGURA 4**: En a) se muestran los valores de $\mbox{DfBeta}_0$, en b) se muestran los valores de $\mbox{DfBeta}_1$, en c) se muestran los valores individuales de dffit, en d) se muestra el valor de Covariance Ratio, en e) se muestra la Distancia de Cook y en f) los valores $h_{ii}$ de cada observación. Se ha coloreado la muestra atípica y observamos que no en todos los indicadores nuestra observación es atípica, por ejemplo para los indicadores $\mbox{DfBeta}_1$ y $h_{ii}$." width="576" />
+<p class="caption">
+<strong>FIGURA 4</strong>: En a) se muestran los valores de <span class="math inline">\(\mbox{DfBeta}_0\)</span>, en b) se muestran los valores de <span class="math inline">\(\mbox{DfBeta}_1\)</span>, en c) se muestran los valores individuales de dffit, en d) se muestra el valor de Covariance Ratio, en e) se muestra la Distancia de Cook y en f) los valores <span class="math inline">\(h_{ii}\)</span> de cada observación. Se ha coloreado la muestra atípica y observamos que no en todos los indicadores nuestra observación es atípica, por ejemplo para los indicadores <span class="math inline">\(\mbox{DfBeta}_1\)</span> y <span class="math inline">\(h_{ii}\)</span>.
+</p>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div id="bibliografia" class="section level3">
+<h3>Bibliografía</h3>
+<!--
+<div id="footer">
+<br>
+Ibon Martínez Arranz &#149; Calle Santa Eulalia 45, 10ºD 48980 Santurtzi (Bizkaia) &#149;
+<br>☎ 626015495 &#149; ☎ 944838823  &#149; ✉ <span class="links"><a href='mailto:ibon.martinez@gmail.com?subject=Contacto a través de curriculum vitae&body=Estimado Ibon,'>ibon.martinez@gmail.com</a></span>
+</div>
+
+Ibon Martínez Arranz&nbsp;&nbsp;&nbsp;
+<a href="mailto:ibon.martinez@gmail.com"><i class="fa fa-envelope-square fa-2x"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="www.google.com"><i class="fa fa-linkedin-square fa-2x"></i>
+
+Ibon Martínez Arranz&nbsp;&nbsp;&nbsp;
+<a href="mailto:ibon.martinez@gmail.com"><i class="fa fa-envelope-square fa-2x"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="www.google.com"><i class="fa fa-linkedin-square fa-2x"></i>
+-->
+<div id="footer">
+<p>|   Ibon Martínez Arranz   |   2018   |   <a href="mailto:ibon.martinez@imarranz.com">contacto</a>   |</p>
+</div>
+<div id="refs" class="references">
+<div id="ref-altmanslr2015">
+<p>Altman, Naomi, and Martin Krzywinski. 2015. “Simple Linear Regression.” <em>Nature Methods</em> 12 (11): 999–1000.</p>
+</div>
+<div id="ref-altman2016a">
+<p>———. 2016a. “Points of Significance: Analyzing Outliers: Influential or Nuisance?” <em>Nature Methods</em> 13 (4): 281–82.</p>
+</div>
+<div id="ref-altman2016b">
+<p>———. 2016b. “Points of Significance: Regression Diagnostics.” <em>Nature Methods</em> 13 (5): 385–86.</p>
+</div>
+<div id="ref-armitage2014">
+<p>Armitage, Emily G., and Coral Barbas. 2014. “Metabolomics in Cancer Biomarker Discovery: Current Trends and Future Perspectives.” <em>J Pharm Biomed Anal</em> 87 (January). Centre for Metabolomics; Bioanalysis (CEMBIO), Faculty of Pharmacy, Universidad San Pablo CEU, Campus Monteprincipe, Boadilla del Monte, 28668 Madrid, Spain.: 1–11. doi:<a href="https://doi.org/10.1016/j.jpba.2013.08.041">10.1016/j.jpba.2013.08.041</a>.</p>
+</div>
+<div id="ref-cook1982">
+<p>Cook, R.D., and S. Weisberg. 1982. <em>Residuals and Influence in Regression</em>. Monographs on Statistics and Applied Probability. Chapman &amp; Hall.</p>
+</div>
+<div id="ref-miroslava2013">
+<p>Čuperlović-Culf, Miroslava. 2013. “5 - Metabolomics Data Analysis – Processing and Analysis of a Dataset.” In <em>{NMR} Metabolomics in Cancer Research</em>, edited by Miroslava Čuperlović-Culf, 261–333. Woodhead Publishing Series in Biomedicine. Woodhead Publishing. doi:<a href="https://doi.org/http://dx.doi.org/10.1533/9781908818263.261">http://dx.doi.org/10.1533/9781908818263.261</a>.</p>
+</div>
+<div id="ref-fox1997">
+<p>Fox, J. 1997. <em>Applied Regression Analysis, Linear Models, and Related Methods</em>. SAGE Publications.</p>
+</div>
+<div id="ref-krzywinskipostd2014">
+<p>Krzywinski, Martin, and Naomi Altman. 2014. “Points of Significance: Two-Factor Designs.” <em>Nature Methods</em> 11 (12): 1187–8.</p>
+</div>
+<div id="ref-kuehl2001">
+<p>Kuehl, R.O., and M.G. Osuna. 2001. <em>Diseño de Experimentos: Principios Estadísticos de Diseño Y análisis de Investigación</em>. Matemáticas (Thomson). International Thomson Editores, S. A. de C. V.</p>
+</div>
+<div id="ref-martinezarranz2015">
+<p>Martínez-Arranz, Ibon, Rebeca Mayo, Miriam Pérez-Cormenzana, Itziar Mincholé, Lorena Salazar, Cristina Alonso, and José M. Mato. 2015. “Enhancing Metabolomics Research Through Data Mining.” <em>Journal of Proteomics</em> 127, Part B (0): 275–88. doi:<a href="https://doi.org/http://dx.doi.org/10.1016/j.jprot.2015.01.019">http://dx.doi.org/10.1016/j.jprot.2015.01.019</a>.</p>
+</div>
+<div id="ref-pena2002">
+<p>Peña, D. 2002. <em>Regresión Y Diseño de Experimentos</em>. El Libro Universitario. Manuales. Alianza.</p>
+</div>
+<div id="ref-pulido2004">
+<p>Pulido, H.G., R. de la Vara Salazar, P.G. González, C.T. Martínez, and M.C.T. Pérez. 2004. <em>Análisis Y Diseño de Experimentos</em>. McGraw-Hill.</p>
+</div>
+<div id="ref-weiner2003">
+<p>Weiner, I.B., D.K. Freedheim, J.A. Schinka, and W.F. Velicer. 2003. <em>Handbook of Psychology, Research Methods in Psychology</em>. Handbook of Psychology. Wiley.</p>
+</div>
+<div id="ref-xie2014">
+<p>Xie, Yihui. 2014. “Knitr: A Comprehensive Tool for Reproducible Research in R.” In <em>Implementing Reproducible Computational Research</em>, edited by Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman; Hall/CRC. <a href="http://www.crcpress.com/product/isbn/9781466561595" class="uri">http://www.crcpress.com/product/isbn/9781466561595</a>.</p>
+</div>
+<div id="ref-xie2015">
+<p>———. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
+</div>
+<div id="ref-xie2016package">
+<p>———. 2016. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
