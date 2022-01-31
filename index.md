@@ -10,9 +10,13 @@ I am Ibon Martínez-Arranz and I got my BSc. in Mathematics from the University 
 ### Contact
 
 **email**: ibon.martinez[at]imarranz.com
----
+
+***
+
 GitHub: [imarranz](https://github.com/imarranz)
----
+
+***
+
 **ORCID**:  
 **Scopus Author ID**: 
 
