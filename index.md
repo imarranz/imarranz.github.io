@@ -27,3 +27,9 @@ GitHub: [imarranz](https://github.com/imarranz)
 <p>This project is maintained by <a href="http://github.com/orderedlist">Steve Smith</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
 </footer>
+
+
+<!--
+https://www.codingwithricky.com/2021/05/10/intro-to-github-pages-create-a-simple-and-free-personal-website/
+https://github.com/pages-themes/minimal
+-->
