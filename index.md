@@ -13,7 +13,7 @@ I am Ibon Martínez-Arranz and I got my BSc. in Mathematics from the University 
 
 ***
 
-GitHub: [imarranz](https://github.com/imarranz)
+**GitHub**: [imarranz](https://github.com/imarranz)
 
 ***
 
