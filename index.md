@@ -10,7 +10,7 @@ When I joined OWL Metabolomics in 2010, first I worked as a researcher in the Me
 
 ### Research interests
 
-[Link to another page](./another-page.md).
+:boy: [Link to another page](./another-page.md).
 
 ### Contact
 

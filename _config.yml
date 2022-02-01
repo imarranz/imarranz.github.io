@@ -8,4 +8,6 @@ google_analytics:
 theme: jekyll-theme-minimal
 github:
   is_project_page_foot: true
-  is_project_page: false
+  is_project_page: false   
+plugins:
+  - jemoji
