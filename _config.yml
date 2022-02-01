@@ -1,11 +1,11 @@
 title: Ibon<br>Martinez-Arranz
 logo: /images/imarranz.png 
-description: GitHub Page by Ibon Martinez-Arranz
+description_short: GitHub Page by Ibon Martinez-Arranz
+description_large: Mathematician • Data Science Manager at OWL • python • R • Jupyter • pandas • Scikit-Learn • Big Data • Machine Learning • SVM • Spark • R Markdown • ggplot2
 show_downloads: true
 show_projects: false
 google_analytics:
 theme: jekyll-theme-minimal
 github:
   is_project_page_foot: true
-  is_project_page: false  
-  project_tagline: Mathematician • Data Science Manager at OWL • python • R • Jupyter • pandas • Scikit-Learn • Big Data • Machine Learning • SVM • Spark • R Markdown • ggplot2
+  is_project_page: false
