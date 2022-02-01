@@ -6,4 +6,6 @@ show_projects: false
 google_analytics:
 theme: jekyll-theme-minimal
 github:
-  is_project_page: true
+  is_project_page_foot: true
+  is_project_page: false  
+  project_tagline: Mathematician • Data Science Manager at OWL • python • R • Jupyter • pandas • Scikit-Learn • Big Data • Machine Learning • SVM • Spark • R Markdown • ggplot2
