@@ -25,13 +25,6 @@ When I joined OWL Metabolomics in 2010, first I worked as a researcher in the Me
 **Scopus Author ID**: [55180708800](https://www.scopus.com/authid/detail.uri?authorId=55180708800)
 
 
-
-
-<footer>
-<p>This project is maintained by <a href="http://github.com/imarranz">Ibon Martínez-Arranz</a></p>
-</footer>
-
-
 <!--
 https://www.codingwithricky.com/2021/05/10/intro-to-github-pages-create-a-simple-and-free-personal-website/
 https://github.com/pages-themes/minimal
