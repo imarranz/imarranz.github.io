@@ -4,3 +4,5 @@ description: GitHub Page by Ibon Martinez-Arranz
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-minimal
+github:
+ - is_project_page: true
