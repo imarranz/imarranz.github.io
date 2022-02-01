@@ -1,4 +1,4 @@
-## Welcome to my personal page
+﻿## Welcome to my personal page
 
 Hi , I'm Ibon
 
@@ -17,15 +17,14 @@ I am Ibon Martínez-Arranz and I got my BSc. in Mathematics from the University 
 
 ***
 
-**ORCID**:  
-**Scopus Author ID**: 
+**ORCID**: [0000-0001-9483-8426](https://orcid.org/0000-0001-9483-8426) 
+**Scopus Author ID**: [55180708800](https://www.scopus.com/authid/detail.uri?authorId=55180708800)
 
 
 
 
 <footer>
-<p>This project is maintained by <a href="http://github.com/orderedlist">Steve Smith</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+<p>This project is maintained by <a href="http://github.com/imarranz">Ibon Martínez-Arranz</a></p>
 </footer>
 
 
