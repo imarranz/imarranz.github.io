@@ -2,6 +2,7 @@ title: Ibon<br>Martinez-Arranz
 logo: /images/imarranz.png 
 description: GitHub Page by Ibon Martinez-Arranz
 show_downloads: true
+show_projects: false
 google_analytics:
 theme: jekyll-theme-minimal
 github:
