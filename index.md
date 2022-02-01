@@ -1,8 +1,8 @@
-## Welcome to my personal page
+﻿## Welcome to my personal page
 
 Hi , I'm Ibon
 
-I am Ibon Martínez-Arranz and I got my BSc. in Mathematics from the University of the Basque Country (EHU/UPV) and performed a MSc. in Current Applied Statistics Techniques and a MSc. in Mathematical Modeling Research, Statistical Analysis and Computing Sciences. 
+I got my BSc. in Mathematics from the University of the Basque Country (EHU/UPV) and performed a MSc. in Current Applied Statistics Techniques and a MSc. in Mathematical Modeling Research, Statistical Analysis and Computing Sciences. 
 
 In 2004, I joined the Basque Country Health Service (The Department of Health of the Basque Country Government and Osakidetza) as a data analyst and my work was mainly focused on the epidemiological report of renal patients. 
 
