@@ -1,4 +1,4 @@
-﻿## Welcome to my personal page
+## Welcome to my personal page
 
 Hi , I'm Ibon
 
@@ -10,6 +10,7 @@ When I joined OWL Metabolomics in 2010, first I worked as a researcher in the Me
 
 ### Research interests
 
+[Link to another page](./another-page.md).
 
 ### Contact
 
