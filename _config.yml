@@ -4,7 +4,7 @@ description_short: GitHub Page by Ibon Martinez-Arranz
 description_large_2: Mathematician • Data Science Manager at OWL • python • R • Jupyter • pandas • Scikit-Learn • Big Data • Machine Learning • SVM • Spark • R Markdown • ggplot2
 description_large: Mathematician
 show_downloads: true
-show_projects: false
+show_projects: true
 google_analytics:
 theme: jekyll-theme-minimal
 github:
