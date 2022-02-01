@@ -1,4 +1,4 @@
-﻿## Welcome to my personal page
+## Welcome to my personal page
 
 Hi , I'm Ibon
 
@@ -17,7 +17,7 @@ I am Ibon Martínez-Arranz and I got my BSc. in Mathematics from the University 
 
 ***
 
-**ORCID**: [0000-0001-9483-8426](https://orcid.org/0000-0001-9483-8426) 
+**ORCID**: [0000-0001-9483-8426](https://orcid.org/0000-0001-9483-8426)   
 **Scopus Author ID**: [55180708800](https://www.scopus.com/authid/detail.uri?authorId=55180708800)
 
 
