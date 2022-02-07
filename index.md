@@ -8,6 +8,12 @@ In 2004, I joined the Basque Country Health Service (The Department of Health of
 
 When I joined OWL Metabolomics in 2010, first I worked as a researcher in the Metabolomics Department and in 2017, I became the head of the Data Science Department, being responsible for prediction and statistical computation management since then. This highly experienced team supports metabolomics services, laboratory processes, data handling, R&D projects and technology transfer processes.
 
+### Personal Projects
+
+I am currently writing my thesis. An important part of this thesis develops genetic algorithms to classify patients based on the lipid profile (obtained by LC-MS).
+
+[If you want to know more about this project...](projects.md) 
+
 ### More details
 
 
