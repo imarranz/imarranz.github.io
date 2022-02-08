@@ -12,9 +12,17 @@ layout: default
 
 ### Data Science Workflow Management
 
+A very personal project. I like to be organized but especially in Data Science projects. Developing a project efficiently forces us to have the data, the notebooks and the results well organized. In this project I try to generate an outline of a Data Science project.  
+
 ![](https://github.com/imarranz/data-science-workflow-management/raw/main/figures/data.svg)
 
 [On GitHub](https://github.com/imarranz/data-science-workflow-management)
 
+
+### mcm
+
+The `mcm` function is a functional tool for analyzed different metrics from a confusion matrix. Can be very useful to analyze the performance of a binary classification model.
+
+[On GitHub](https://github.com/imarranz/mcm)
 
 [back](./)
