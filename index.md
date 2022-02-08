@@ -12,7 +12,9 @@ When I joined OWL Metabolomics in 2010, first I worked as a researcher in the Me
 
 I am currently writing my thesis. An important part of this thesis develops genetic algorithms to classify patients based on the lipid profile (obtained by LC-MS).
 
-[If you want to know more about this project...](projects.md) 
+I am also a Data Science enthusiast and I have several projects about that.
+
+[If you want to know more about these projects...](projects.md) 
 
 ### More details
 
