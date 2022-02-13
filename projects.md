@@ -15,7 +15,7 @@ I have developed this package of genetic algorithms to subtype patients with NAS
 ### PYGENMET MANUAL
 
 <p style="text-align:center;">
-<img src="http://www.imarranz.com/pygenmet-manual/_images/cover.png" alt="PYGENMET Manual" width="200"/>
+<img src="http://www.imarranz.com/pygenmet-manual/_images/cover.png" alt="PYGENMET Manual" width="300"/>
 </p>
 
 ### Data Science Workflow Management
