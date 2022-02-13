@@ -6,9 +6,15 @@ layout: default
 
 ### PYGENMET
 
+I have developed this package of genetic algorithms to subtype patients with NASH, although it is a tool that can be used for all types of diseases. 
+
 ![](https://github.com/imarranz/pygenmet/raw/master/figures/logo.png)
 
 [On GitHub](https://github.com/imarranz/pygenmet)
+
+### PYGENMET MANUAL
+
+![](http://www.imarranz.com/pygenmet-manual/_images/cover.png)
 
 ### Data Science Workflow Management
 
