@@ -32,6 +32,8 @@ I am also a Data Science enthusiast and I have several projects about that.
 
 :envelope: **email**: ibon.martinez[at]imarranz.com
 
+<!--
+
 ***
 
 :octocat: **GitHub**: [imarranz](https://github.com/imarranz)
@@ -41,8 +43,6 @@ I am also a Data Science enthusiast and I have several projects about that.
 :books: **ORCID**: [0000-0001-9483-8426](https://orcid.org/0000-0001-9483-8426)   
 :books: **Scopus Author ID**: [55180708800](https://www.scopus.com/authid/detail.uri?authorId=55180708800)
 
-
-<!--
 https://www.codingwithricky.com/2021/05/10/intro-to-github-pages-create-a-simple-and-free-personal-website/
 https://github.com/pages-themes/minimal
 -->
