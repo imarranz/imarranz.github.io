@@ -22,7 +22,7 @@ I have developed this package of genetic algorithms to subtype patients with NAS
 
 
 <p style="text-align:center;">
-<img src="http://www.imarranz.com/data-science-workflow-management/figures/cover_dswm.png" alt="PYGENMET Manual" width="300"/>
+<img src="https://github.com/imarranz/data-science-workflow-management/blob/main/figures/cover_dswm.png" alt="Data Science Workflow Management Manual" width="300"/>
 </p>
 
 A very personal project. I like to be organized but especially in Data Science projects. Developing a project efficiently forces us to have the data, the notebooks and the results well organized. In this project I try to generate an outline of a Data Science project.  
