@@ -29,6 +29,7 @@ https://codepen.io/rctorr/pen/KpXaeY
 div.project {
   width: 100%;
   margin: 20px auto;
+  background-color: #DDD;
   padding: 15px;
 }
 
