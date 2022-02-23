@@ -21,3 +21,27 @@ header {
   margin-right: auto;
   width: 50%;
 }
+
+<!--
+https://codepen.io/rctorr/pen/KpXaeY
+-->
+
+div.project {
+  width: 100%;
+  margin: 20px auto;
+  padding: 15px;
+}
+
+div.project img.left {
+  float: left;
+  margin-right: 15px;
+}
+
+div.project img.right {
+  float: right;
+  margin-left: 15px;
+}
+
+div.reset {
+  clear: both;
+}
