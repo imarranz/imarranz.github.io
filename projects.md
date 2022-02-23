@@ -14,18 +14,19 @@ I have developed this package of genetic algorithms to subtype patients with NAS
 
 ### PYGENMET MANUAL
 
+I have written a manual to use the PYGENMET package, with descriptions about functions, examples, and code.
+
 <p style="text-align:center;">
 <img src="http://www.imarranz.com/pygenmet-manual/_images/cover.png" alt="PYGENMET Manual" width="300"/>
 </p>
 
 ### Data Science Workflow Management
 
+A very personal project. I like to be organized but especially in Data Science projects. Developing a project efficiently forces us to have the data, the notebooks and the results well organized. In this project I try to generate an outline of a Data Science project.
 
 <p style="text-align:center;">
 <img src="https://github.com/imarranz/data-science-workflow-management/blob/main/figures/cover_dswm.png?raw=true" alt="Data Science Workflow Management Manual" width="300"/>
 </p>
-
-A very personal project. I like to be organized but especially in Data Science projects. Developing a project efficiently forces us to have the data, the notebooks and the results well organized. In this project I try to generate an outline of a Data Science project.  
 
 [On GitHub](https://github.com/imarranz/data-science-workflow-management)
 
