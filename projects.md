@@ -12,11 +12,13 @@ I have developed this package of genetic algorithms to subtype patients with NAS
 
 [On GitHub](https://github.com/imarranz/pygenmet)
 
+<!--
 <div class="project">
   <img class="left" src="https://github.com/imarranz/pygenmet/raw/master/figures/logo.png" alt="PYGENMET" width="200px">
   <aside>I have developed this package of genetic algorithms to subtype patients with NASH, although it is a tool that can be used for all types of diseases.</aside>
   <div class="reset"></div>
 </div>
+-->
 
 ### PYGENMET MANUAL
 
