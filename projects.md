@@ -5,7 +5,7 @@ layout: default
 
 ## Personal Projects
 
-### &#9822 PYGENMET
+### &#9822; PYGENMET
 
 I have developed this package of genetic algorithms to subtype patients with NASH, although it is a tool that can be used for all types of diseases. 
 
