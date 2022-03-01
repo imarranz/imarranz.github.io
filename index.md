@@ -1,5 +1,7 @@
 [Home](index.md) [Projects](projects.md)
 
+***
+
 ## Welcome to my personal page
 
 Hi :wave:, I'm Ibon
