@@ -1,33 +1,4 @@
-<ul class="nav nav-tabs">
-  <li class="active"><a href = "index">Home</a></li>
-  <li><a href = "projects">Projects</a></li>
-</ul>
-
-<nav class="navbar">
-   <!-- LOGO -->
-   <div class="logo">IMARRANZ</div>
-   <!-- NAVIGATION MENU -->
-   <ul class="nav-links">
-     <!-- NAVIGATION MENUS -->
-     <div class="menu">
-     <li><a href="index">Home</a></li>
-     <li><a href="projects">Projects</a></li>
-     <li class="services">
-     <a href="/">Services</a>
-     <!-- DROPDOWN MENU -->
-     <ul class="dropdown">
-       <li><a href="/">Dropdown 1 </a></li>
-       <li><a href="/">Dropdown 2</a></li>
-       <li><a href="/">Dropdown 2</a></li>
-       <li><a href="/">Dropdown 3</a></li>
-       <li><a href="/">Dropdown 4</a></li>
-     </ul>
-     </li>
-     <li><a href="/">Pricing</a></li>
-     <li><a href="/">Contact</a></li>
-     </div>
-   </ul>
-</nav>
+[Home](index.md) [Projects](projects.md)
 
 ## Welcome to my personal page
 
