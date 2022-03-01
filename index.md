@@ -1,4 +1,4 @@
-[Home](index.md) &#10074; [Projects](projects.md) &#10073; [&#10074;](/)
+[Home](index.md) [Projects](projects.md)  
 
 ***
 
