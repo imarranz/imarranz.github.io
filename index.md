@@ -1,3 +1,8 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a href = "index">Home</a></li>
+  <li><a href = "projects">Projects</a></li>
+</ul>
+
 ## Welcome to my personal page
 
 Hi :wave:, I'm Ibon
