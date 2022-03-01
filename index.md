@@ -1,4 +1,4 @@
-&nbsp; | &nbsp; [Home](index.md) &nbsp; || &nbsp; [Projects](projects.md) &nbsp; | &nbsp;
+[Home](index.md) &nbsp; || &nbsp; [Projects](projects.md)
 
 ***
 
