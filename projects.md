@@ -2,6 +2,7 @@
 layout: default
 ---
 
+[Home](index.md) [Projects](projects.md)
 
 ## Personal Projects
 
