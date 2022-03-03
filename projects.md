@@ -14,7 +14,7 @@ layout: default
 
 ### &#9822; PYGENMET
 
-I have developed this package of genetic algorithms to subtype patients with NASH, although it is a tool that can be used for all types of diseases. 
+I have developed this package of Genetic Algorithms to subtype patients with NASH, although it is a tool that can be used for all types of diseases. 
 
 ![](https://github.com/imarranz/pygenmet/raw/master/figures/logo.png)
 
@@ -40,7 +40,7 @@ I have written a manual to use the PYGENMET package, with descriptions about fun
 
 ### &#9822; Data Science Workflow Management
 
-A very personal project. I like to be organized but especially in Data Science projects. Developing a project efficiently forces us to have the data, the notebooks and the results well organized. In this project I try to generate an outline of a Data Science project.
+A very personal project. I like to be organized but especially in Data Science projects. Often, these types of projects can take a long time and for that reason it is very important to control all the analyzes and results. Developing a project efficiently forces us to have the data, the notebooks and the results well organized. In this project I try to generate a general workflow of a Data Science project.
 
 <p style="text-align:center;">
 <img src="https://github.com/imarranz/data-science-workflow-management/blob/main/figures/cover_dswm.png?raw=true" alt="Data Science Workflow Management Manual" width="300"/>
@@ -54,5 +54,9 @@ A very personal project. I like to be organized but especially in Data Science p
 The `mcm` function is a functional tool for analyzed different metrics from a confusion matrix. Can be very useful to analyze the performance of a binary classification model.
 
 [On GitHub](https://github.com/imarranz/mcm)
+
+### &#9822; Miscellaneous Python Functions
+
+This is a :gift: _mystery box_ :gift: where I am putting different functions that are useful to me on a day-to-day. what can you find here? who knows! but it can help you or inspire you. 
 
 [back](./)
