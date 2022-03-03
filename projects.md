@@ -57,6 +57,6 @@ The `mcm` function is a functional tool for analyzed different metrics from a co
 
 ### &#9822; Miscellaneous Python Functions
 
-This is a :gift: _mystery box_ :gift: where I am putting different functions that are useful to me on a day-to-day. what can you find here? who knows! but it can help you or inspire you. 
+This is a :gift: _mystery box_ :gift: where I am putting different functions that are useful to me on a day-to-day. What can you find here? Who knows! but it can help you or inspire you. 
 
 [back](./)
