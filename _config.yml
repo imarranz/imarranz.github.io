@@ -3,6 +3,15 @@ logo: /images/imarranz.png
 description_short: GitHub Page by Ibon Martinez-Arranz
 description_large: <b>Mathematician &#38; Data Scientist</b> &bull; Data Science Manager at OWL &bull; python &bull; R &bull; Jupyter &bull; pandas &bull; Scikit-Learn &bull; Big Data &bull; Machine Learning &bull; SVM &bull; Spark &bull; R Markdown &bull; ggplot2
 show_ids: true
+ids:
+  - id1:
+    name: ORCID
+    href: https://orcid.org/0000-0001-9483-842    
+    ref: 0000-0001-9483-842
+  - id2: 
+    name: Scopus Autor ID
+    href: https://www.scopus.com/authid/detail.uri?authorId=55180708800
+    ref: 55180708800  
 show_downloads: true
 show_projects: true
 google_analytics:
