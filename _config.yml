@@ -34,7 +34,7 @@ projects:
   - project4:
     show: true
     name: Data Science Workflow
-    href: https://github.com/imarranz/data-science-workflow-managemet
+    href: https://github.com/imarranz/data-science-workflow-management
     ref: Data Science Workflow Management
     
 google_analytics:
