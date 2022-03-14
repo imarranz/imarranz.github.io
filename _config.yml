@@ -9,7 +9,7 @@ ids:
     href: https://orcid.org/0000-0001-9483-8426    
     ref: 0000-0001-9483-8426
   - id2: 
-    name: Scopus Autor ID
+    name: Scopus Author ID
     href: https://www.scopus.com/authid/detail.uri?authorId=55180708800
     ref: 55180708800  
 show_downloads: true
