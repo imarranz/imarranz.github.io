@@ -24,10 +24,14 @@
         <p>{{ site.description_large | default: site.github.project_tagline }}</p>
         
         {% if site.show_ids %}
+        {% for id in site.ids %}
+        :books: <b>{{id.name}}</b>: <a href={{id.href}}>{{id.ref}}</a>
+        
         <p>
         :books: <b>ORCID</b>: <a href="https://orcid.org/0000-0001-9483-8426">0000-0001-9483-8426</a><br>
         :books: <b>Scopus Author ID</b>: <a href="https://www.scopus.com/authid/detail.uri?authorId=55180708800">55180708800</a>
         </p>
+        {% endfor %}
         {% endif %}
 
         {% if site.github.is_project_page %}
