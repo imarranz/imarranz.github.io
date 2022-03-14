@@ -13,6 +13,7 @@ ids:
     href: https://www.scopus.com/authid/detail.uri?authorId=55180708800
     ref: 55180708800  
 show_downloads: true
+
 show_projects: true
 projects:
   - project1:
@@ -25,11 +26,16 @@ projects:
     name: pygenmet_manual
     href: https://github.com/imarranz/pygenmet-manual
     ref: Pygenmet Manual
-  - project2:
+  - project3:
     show: false
     name: imarranz
     href: https://github.com/imarranz/imarranz
     ref: imarranz    
+  - project4:
+    show: true
+    name: Data Science Workflow
+    href: https://github.com/imarranz/data-science-workflow-managemet
+    ref: Data Science Workflow Management
     
 google_analytics:
 theme: jekyll-theme-minimal
