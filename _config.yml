@@ -6,8 +6,8 @@ show_ids: true
 ids:
   - id1:
     name: ORCID
-    href: https://orcid.org/0000-0001-9483-842    
-    ref: 0000-0001-9483-842
+    href: https://orcid.org/0000-0001-9483-8426    
+    ref: 0000-0001-9483-8426
   - id2: 
     name: Scopus Autor ID
     href: https://www.scopus.com/authid/detail.uri?authorId=55180708800
