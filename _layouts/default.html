@@ -24,9 +24,11 @@
         <p>{{ site.description_large | default: site.github.project_tagline }}</p>
         
         {% if site.show_ids %}
+        <p>
         {% for id in site.ids %}
-        <p>:books: <b>{{id.name}}</b>: <a href={{id.href}}>{{id.ref}}</a></p>
+        :books: <b>{{id.name}}</b>: <a href={{id.href}}>{{id.ref}}</a>
         {% endfor %}
+        </p>
         {% endif %}
 
         {% if site.github.is_project_page %}
