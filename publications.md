@@ -1,5 +1,6 @@
 ---
 layout: default
+title: publications
 ---
 
 <table style="background-color:#EEEEEE; border:0px solid black; border-collapse: collapse; padding: 5px 20px 5px 20px;">
