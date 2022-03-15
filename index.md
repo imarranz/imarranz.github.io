@@ -25,10 +25,7 @@ I am also a Data Science enthusiast and I have several projects about that.
 
 [If you want to know more about these projects...](projects.md) 
 
-[prueba](prueba.md)
-
 ### More details
-
 
 - :pushpin: I’m currently working as :bar_chart: [Senior Data Scientist](https://www.owlmetabolomics.com/management-team-member.aspx?member=22) :bar_chart: @ [OWL Metabolomics](https://www.owlmetabolomics.com/).
 - :pushpin: I’m currently learning [Streamlit](https://docs.streamlit.io/), [Panel](https://panel.holoviz.org/#) and [MongoDB](https://github.com/mongodb/mongo), ...
