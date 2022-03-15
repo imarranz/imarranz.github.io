@@ -2,6 +2,9 @@ title: Ibon <br>Martinez-Arranz
 logo: /images/imarranz.png 
 description_short: GitHub Page by Ibon Martinez-Arranz
 description_large: <b>Mathematician &#38; Data Scientist</b> &bull; Data Science Manager at OWL &bull; python &bull; R &bull; Jupyter &bull; pandas &bull; Scikit-Learn &bull; Big Data &bull; Machine Learning &bull; SVM &bull; Spark &bull; R Markdown &bull; ggplot2
+
+lang: en-US
+
 show_ids: true
 ids:
   - id1:
@@ -12,6 +15,7 @@ ids:
     name: Scopus Author ID
     href: https://www.scopus.com/authid/detail.uri?authorId=55180708800
     ref: 55180708800  
+
 show_downloads: true
 
 show_projects: true
