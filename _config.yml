@@ -20,7 +20,7 @@ projects:
     show: true
     name: pygenmet
     href: https://github.com/imarranz/pygenmet
-    ref: pygenmet
+    ref: Pygenmet
   - project2:
     show: true
     name: pygenmet_manual
