@@ -12,17 +12,6 @@ title: projects
   </tr>
 </table>
 
-{% if site.show_projects %} 
-    <b>PROJECTS ON GITHUB</b>
-    <p>
-    {% for project in site.projects %}
-    {% if project.show %}
-        <a href={{ project.href }}>{{ project.ref }}</a><br>
-    {% endif %}
-    {% endfor %}
-    </p>
-{% endif %}
-
 ## Personal Projects
 
 ### &#9822; PYGENMET
