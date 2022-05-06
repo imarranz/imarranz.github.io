@@ -14,3 +14,20 @@ title: software
 </table>
 
 ## Software 
+
+### &#9822; PYGENMET
+
+I have developed this package of Genetic Algorithms to subtype patients with NASH, although it is a tool that can be used for all types of diseases. 
+
+![](https://github.com/imarranz/pygenmet/raw/master/figures/logo.png)
+
+[On GitHub](https://github.com/imarranz/pygenmet)
+
+
+### &#9822; OWL Stat App
+
+An interactive web-application for univariate and multivariate metabolomics data analysis
+
+![](http://owl.dnsalias.com:3838/OWLStatApp/logo/logo.png)
+
+[Web](http://owl.dnsalias.com:3838/OWLStatApp/)
