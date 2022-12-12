@@ -19,7 +19,9 @@ title: projects
 
 I have developed this package of Genetic Algorithms to subtype patients with NASH, although it is a tool that can be used for all types of diseases. 
 
-![](https://github.com/imarranz/pygenmet/raw/master/figures/logo.png)
+<p style="text-align:center;">
+<img src="./images/pygenmet.png" alt="PYGENMET Manual" width="300"/>
+</p>
 
 [On GitHub](https://github.com/imarranz/pygenmet)
 
@@ -36,7 +38,7 @@ I have developed this package of Genetic Algorithms to subtype patients with NAS
 I have written a manual to use the PYGENMET package, with descriptions about functions, examples, and code.
 
 <p style="text-align:center;">
-<img src="http://www.imarranz.com/pygenmet-manual/_images/cover.png" alt="PYGENMET Manual" width="300"/>
+<img src="./images/cover_pygenmet.png" alt="PYGENMET Manual" width="300"/>
 </p>
 
 [On GitHub](https://github.com/imarranz/pygenmet-manual)
