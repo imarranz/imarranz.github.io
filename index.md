@@ -1,33 +1,15 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">imarranz</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-brand mb-0 h1">imarranz</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="index">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="publications">Publications</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="projects">Projects</a>
-      </li>      
-      <li class="nav-item">
-        <a class="nav-link" href="software">Software</a>
-      </li>      
-      <!--
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Software</a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="projects/mcm">MCM</a>
-          <a class="dropdown-item" href="projects/miscellaneous-python-functions">Miscellaneous Python Functions</a>
-        </div>
-      </li>   
-      -->
-    </ul>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="index">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="publications">Publications</a>
+      <a class="nav-item nav-link" href="projects">Projects</a>
+      <a class="nav-item nav-link" href="software">Software</a>
+    </div>
   </div>
 </nav>
 
