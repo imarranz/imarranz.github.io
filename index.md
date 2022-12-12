@@ -12,15 +12,21 @@
       <li class="nav-item">
         <a class="nav-link" href="publications">Publications</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="projects">Projects</a>
+      </li>      
+      <li class="nav-item">
+        <a class="nav-link" href="software">Software</a>
+      </li>      
+      <!--
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Software
-        </a>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Software</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="projects/mcm">MCM</a>
           <a class="dropdown-item" href="projects/miscellaneous-python-functions">Miscellaneous Python Functions</a>
         </div>
-      </li>      
+      </li>   
+      -->
     </ul>
   </div>
 </nav>
