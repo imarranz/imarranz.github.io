@@ -18,6 +18,18 @@
       <li class="nav-item">
         <a class="nav-link" href="software">Software</a>
       </li>      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Software
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="miscellaneous-python-functions">Miscellaneous Python Functions</a>
+        </div>
+      </li>      
+      
     </ul>
   </div>
 </nav>

@@ -15,7 +15,7 @@ title: projects
 
 ## Personal Projects
 
-### &#9822; PYGENMET
+### PYGENMET
 
 I have developed this package of Genetic Algorithms to subtype patients with NASH, although it is a tool that can be used for all types of diseases. 
 
@@ -33,13 +33,13 @@ I have developed this package of Genetic Algorithms to subtype patients with NAS
 </div>
 -->
 
-### &#9822; OPENAI API
+### OPENAI API
 
 Generate texts and images using OpenAI's GPT-3 based davinci and dall-e models.
 
 [On GitHub](https://github.com/imarranz/streamlit-openai-app)
 
-### &#9822; PYGENMET MANUAL
+### PYGENMET MANUAL
 
 I have written a manual to use the PYGENMET package, with descriptions about functions, examples, and code.
 
@@ -49,7 +49,7 @@ I have written a manual to use the PYGENMET package, with descriptions about fun
 
 [On GitHub](https://github.com/imarranz/pygenmet-manual)
 
-### &#9822; Data Science Workflow Management
+### Data Science Workflow Management
 
 A very personal project. I like to be organized but especially in Data Science projects. Often, these types of projects can take a long time and for that reason it is very important to control all the analyzes and results. Developing a project efficiently forces us to have the data, the notebooks and the results well organized. In this project I try to generate a general workflow of a Data Science project.
 
@@ -60,13 +60,13 @@ A very personal project. I like to be organized but especially in Data Science p
 [On GitHub](https://github.com/imarranz/data-science-workflow-management)
 
 
-### &#9822; mcm
+### mcm
 
 The `mcm` function is a functional tool for analyzed different metrics from a confusion matrix. Can be very useful to analyze the performance of a binary classification model.
 
 [On GitHub](https://github.com/imarranz/mcm)
 
-### &#9822; Miscellaneous Python Functions
+### Miscellaneous Python Functions
 
 This is a :gift: _mystery box_ :gift: where I am putting different functions that are useful to me on a day-to-day. What can you find here? Who knows! but it can help you or inspire you. 
 
