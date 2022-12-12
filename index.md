@@ -20,8 +20,7 @@
           Software
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="/projects/mcm">MCM</a>
           <a class="dropdown-item" href="/projects/miscellaneous-python-functions">Miscellaneous Python Functions</a>
         </div>
       </li>      
