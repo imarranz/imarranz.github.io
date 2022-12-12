@@ -20,7 +20,7 @@ title: projects
 I have developed this package of Genetic Algorithms to subtype patients with NASH, although it is a tool that can be used for all types of diseases. 
 
 <p style="text-align:center;">
-<img src="./images/pygenmet.png" alt="PYGENMET Manual" width="300"/>
+<img src="./images/pygenmet.png" alt="PYGENMET Manual" width="500"/>
 </p>
 
 [On GitHub](https://github.com/imarranz/pygenmet)
@@ -32,6 +32,12 @@ I have developed this package of Genetic Algorithms to subtype patients with NAS
   <div class="reset"></div>
 </div>
 -->
+
+### &#9822; OPENAI API
+
+Generate texts and images using OpenAI's GPT-3 based davinci and dall-e models.
+
+[On GitHub](https://github.com/imarranz/streamlit-openai-app)
 
 ### &#9822; PYGENMET MANUAL
 
@@ -48,7 +54,7 @@ I have written a manual to use the PYGENMET package, with descriptions about fun
 A very personal project. I like to be organized but especially in Data Science projects. Often, these types of projects can take a long time and for that reason it is very important to control all the analyzes and results. Developing a project efficiently forces us to have the data, the notebooks and the results well organized. In this project I try to generate a general workflow of a Data Science project.
 
 <p style="text-align:center;">
-<img src="https://github.com/imarranz/data-science-workflow-management/blob/main/figures/cover_dswm.png?raw=true" alt="Data Science Workflow Management Manual" width="300"/>
+<img src="./images/cover_dswm.png" alt="Data Science Workflow Management Manual" width="300"/>
 </p>
 
 [On GitHub](https://github.com/imarranz/data-science-workflow-management)
