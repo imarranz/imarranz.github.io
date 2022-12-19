@@ -1,3 +1,4 @@
+<!--
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <span class="navbar-brand mb-0 h1">imarranz</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +13,7 @@
     </div>
   </div>
 </nav>
-
+-->
 
 <table style="background-color:#EEEEEE; border:0px solid black; border-collapse: collapse; padding: 5px 20px 5px 20px;">
   <tr>
@@ -32,13 +33,15 @@ I got my BSc. in Mathematics from the University of the Basque Country (EHU/UPV)
 
 In 2004, I joined the Basque Country Health Service (The Department of Health of the Basque Country Government and Osakidetza) as a data analyst and my work was mainly focused on the epidemiological report of renal patients. 
 
-When I joined OWL Metabolomics in 2010, first I worked as a researcher in the Metabolomics Department and in 2017, I became the head of the Data Science Department, being responsible for prediction and statistical computation management since then. This highly experienced team supports metabolomics services, laboratory processes, data handling, R&D projects and technology transfer processes.
+When I joined OWL Metabolomics in 2010, first I worked as a researcher in the Metabolomics Department and in 2017, I became the head of the Data Science Department, being responsible for prediction and statistical computation management since then. This high experience provide support to metabolomics services, laboratory processes, data handling, R&D projects and technology transfer processes.  
 
 ### Personal Projects
 
-I am currently writing my thesis. An important part of this thesis develops genetic algorithms to classify patients based on the lipid profile (obtained by LC-MS).
+I am currently writing my thesis. In this project I will explore the potential of genetic algorithms to analyze and interpret metabolomic profiles (obtained by LC-MS). Metabolomic profiles are snapshots of what is going on inside an organism at a particular time. They are a direct measure of the biochemical action that is occurring in an organism, providing an unmediated view of biological systems. By analyzing the metabolites present in an organism, it is possible to gain insights into the metabolic pathways active in the organism, as well as the overall health of the organism. 
 
-I am also a Data Science enthusiast and I have several projects about that.
+I am also a Data Science enthusiast, who loves to play with data and gain insights from it. I am also keen to learn machine learning and artificial intelligence. I am currently trying to improve my programming skills and understanding of the fundamentals of data science.
+
+I have a passion for understanding the power of data and its potential to tell stories, making sense of complex phenomena, or discovering problems that had previously gone unnoticed. In my spare time, I participate in various data science competitions to hone my analysis and coding skills. I also enjoy learning new tools, especially ones that allow me to analyze data in more effective ways.
 
 [If you want to know more about these projects...](projects.md) 
 
