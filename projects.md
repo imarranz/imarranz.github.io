@@ -15,6 +15,13 @@ title: projects
 
 ## Personal Projects
 
+I am a data scientist with a passion for exploring data to gain deeper insights. I have worked on several projects involving data analysis and visualization. My goal is to create meaningful and interactive visualizations that allow users to gain insights into complex datasets. 
+
+I believe data science is an incredibly powerful tool that can be used to answer questions, identify trends, and even predict future outcomes. With the right data and analysis, data science can be used to uncover insights that can inform decisions and lead to positive change. My projects range from simple data analysis to machine learning models and data visualization. I am passionate about using data to identify patterns and trends, discover hidden relationships, and make predictions. 
+
+I am excited to share my work with you and I hope it will help you gain a better understanding of data science and its potential. Thank you for your time and attention.
+
+
 ### PYGENMET
 
 I have developed this package of Genetic Algorithms to subtype patients with NASH, although it is a tool that can be used for all types of diseases. 
