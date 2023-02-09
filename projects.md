@@ -30,7 +30,7 @@ I have developed this package of Genetic Algorithms to subtype patients with NAS
 <img src="./images/pygenmet.png" alt="PYGENMET Manual" width="500"/>
 </p>
 
-[On GitHub](https://github.com/imarranz/pygenmet)
+:octocat: [On GitHub](https://github.com/imarranz/pygenmet)
 
 <!--
 <div class="project">
@@ -44,7 +44,7 @@ I have developed this package of Genetic Algorithms to subtype patients with NAS
 
 Generate texts and images using OpenAI's GPT-3 based davinci and dall-e models.
 
-[On GitHub](https://github.com/imarranz/streamlit-openai-app)
+:octocat: [On GitHub](https://github.com/imarranz/streamlit-openai-app)
 
 ### PYGENMET MANUAL
 
@@ -54,7 +54,7 @@ I have written a manual to use the PYGENMET package, with descriptions about fun
 <img src="./images/cover_pygenmet.png" alt="PYGENMET Manual" width="300"/>
 </p>
 
-[On GitHub](https://github.com/imarranz/pygenmet-manual)
+:octocat: [On GitHub](https://github.com/imarranz/pygenmet-manual)
 
 ### Data Science Workflow Management
 
@@ -64,14 +64,14 @@ A very personal project. I like to be organized but especially in Data Science p
 <img src="./images/cover_dswm.png" alt="Data Science Workflow Management Manual" width="300"/>
 </p>
 
-[On GitHub](https://github.com/imarranz/data-science-workflow-management)
+:octocat: [On GitHub](https://github.com/imarranz/data-science-workflow-management)
 
 
 ### mcm
 
 The `mcm` function is a functional tool for analyzed different metrics from a confusion matrix. Can be very useful to analyze the performance of a binary classification model.
 
-[On GitHub](https://github.com/imarranz/mcm)
+:octocat: [On GitHub](https://github.com/imarranz/mcm)
 
 ### Miscellaneous Python Functions
 
