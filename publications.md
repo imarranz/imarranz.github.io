@@ -15,6 +15,8 @@ title: publications
 
 ## Publications
 
+- <a href="https://doi.org/10.3390/cancers15123145"><img src="https://img.shields.io/badge/DOI-10.3390/cancers15123145-cfd8dc?labelColor=black&style=flat-square" align="right"/></a> **[Role of Intracellular Drug Disposition in the Response of Acute Myeloid Leukemia to Cytarabine and Idarubicin Induction Chemotherapy. (2023)](https://doi.org/10.3390/cancers15123145)**
+
 - <a href="https://doi.org/10.1002/hep.32427"><img src="https://img.shields.io/badge/DOI-10.1002/hep.32427-cfd8dc?labelColor=black&style=flat-square" align="right"/></a> **[Metabolic subtypes of nonalcoholic fatty liver disease patients exhibit distinctive cardiovascular risk profiles. (2022)](https://doi.org/10.1002/hep.32427)**
 
 - <a href="https://doi.org/10.3390/cancers12061433"><img src="https://img.shields.io/badge/DOI-10.3390/cancers12061433-cfd8dc?labelColor=black&style=flat-square" align="right"/></a> **[A Novel Serum Metabolomic Profile for the Differential Diagnosis of Distal Cholangiocarcinoma and Pancreatic Ductal Adenocarcinoma. (2020)](https://doi.org/10.3390/cancers12061433)**
